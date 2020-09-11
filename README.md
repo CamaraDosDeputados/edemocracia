@@ -1,41 +1,29 @@
+## Sobre esta versão
+
+Esta versão do e-Democracia está voltada para as necessidades dos programas educacionais da Câmara dos Deputados, tal como o Parlamento Jovem Brasileiro.
+
+## Passos para execução
+
+Primeiro, é necessário inicializar o submódulo com a barra de navegação:
+
+```
+cd src/templates/edem-navigation 
+git submodule init
+git submodule update --remote
+```
+
+Em seguida, na raiz do repositório:
+
+```
+docker-compose up --build
+```
+
+Por padrão o serviço será disponibilizado na porta 8000. 
+
+A interface de administração estará disponível em /admin, e poderá ser acessada com os credenciais ADMIN_USERNAME e ADMIN_PASSWORD.
+
 ## **Guias de administração e instalação das ferramentas**
 [Link para os guias do e-Democracia](http://www.edemocracia.leg.br/#links)
-
-## **Configurando Ambiente de Desenvolvimento**
-
-Primeiramente, para rodar o e-Democracia, é preciso instalar algumas dependências e o [Node.js](https://nodejs.org/en/download/) no sistema para que algumas bibliotecas funcionem adequadamente:
-
-
-    sudo dnf install libxml2-devel libxslt-devel # Fedora/CentOS
-    # ou
-    sudo apt-get install libxml2-dev libxslt-dev
-
-Além disso, usamos o `pipenv` para gerênciar as dependências python do projeto, então você também precisa instalá-lo:
-
-
-    sudo pip install pipenv
-
-Em seguida, basta executar o seguinte comando para instalar todas as bibliotecas:
-
-
-    pipenv install --dev
-    npm install
-
-**Obs:** A configuração das outras ferramentas (Audiências Interativas, Discourse, Pauta Participativa ou Wikilegis) deve ser feita individualmente.
-
-## **Contribuindo com o e-Democracia**
-1. Faça um *fork*  do repositório (https://github.com/eDemocracia/edemocracia)
-2. Faça todas as implementações necessárias no seu próprio *fork*
-3. Quando terminar é só submeter um *Pull Request* para o repositório principal 😃
-
-Caso esteja trabalhando em uma *issue* específica, pedimos apenas para você comentar na *issue*, dizendo que começou a fazer, pra não termos problemas de duas pessoas trabalhando na mesma coisa.
-
-Você também pode seguir nosso [Guia de Desenvolvimento](https://paper.dropbox.com/doc/Guia-de-Desenvolvimento-G4x38rz4ctNlseA4IIV4H?_tk=share_copylink).
-
-## **Tecnologias Utilizadas**
-- Python 3.6+
-- Django 2.0+
-- Node.js + npm
 
 ## **Arquitetura do projeto**
 

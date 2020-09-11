@@ -9,6 +9,7 @@ from apps.pautas.data import get_pautas_index_data
 from apps.audiencias.data import get_audiencias_index_data
 from apps.core.utils import get_user_data
 
+from apps.pjb.models import DeputadoPjb, ProjetoPjb
 
 class EdemProxyView(DiazoProxyView):
     html5 = True
@@ -40,5 +41,8 @@ def index(request):
         context['history_rooms'] = rooms['history_rooms']
         context['agenda_rooms'] = rooms['agenda_rooms']
         context['live_rooms'] = rooms['live_rooms']
+
+    context['deputados'] = DeputadoPjb.objects.all()
+    context['projetos'] = ProjetoPjb.objects.all()
 
     return render(request, 'index.html', context)

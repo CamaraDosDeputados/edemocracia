@@ -67,6 +67,8 @@ INSTALLED_APPS = [
     'apps.audiencias',
     'apps.discourse',
     'apps.about',
+
+    'apps.pjb'
 ]
 
 MIDDLEWARE = [
