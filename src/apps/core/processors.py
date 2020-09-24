@@ -12,4 +12,9 @@ def settings_variables(request):
         'DISCOURSE_ENABLED': settings.DISCOURSE_ENABLED,
         'AUDIENCIAS_ENABLED': settings.AUDIENCIAS_ENABLED,
         'CAMARA_LOGIN': settings.CAMARA_LOGIN,
+        'BASE_URL_EDEMOCRACIA': settings.BASE_URL_EDEMOCRACIA,
+        'BASE_URL_WIKILEGIS': settings.BASE_URL_WIKILEGIS,
+        'BASE_URL_PAUTAS': settings.BASE_URL_PAUTAS,
+        'BASE_URL_AUDIENCIAS': settings.BASE_URL_AUDIENCIAS,
+        'BASE_URL_DISCOURSE': settings.BASE_URL_DISCOURSE,
     }

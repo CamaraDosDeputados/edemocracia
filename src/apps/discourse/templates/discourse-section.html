@@ -3,7 +3,7 @@
     <div class="e-row e-expanded">
 
       <div class="section__info section__block e-columns small-12 large-3">
-        <a href="/expressao/"><img class="section__logo" src="/static/img/logo-expressao.svg" ></a>
+        <a href="{{ BASE_URL_DISCOURSE }}"><img class="section__logo" src="/static/img/logo-expressao.svg" ></a>
         <p class="section__text">
           {{ config.EXPRESSAO_DESCRIPTION }}
         </p>
@@ -13,11 +13,11 @@
         <div class="section__content">
 
           <h1 class="section__title">
-            <a class="section__link" href="/expressao/" title="Veja todas as discussões">{{ config.EXPRESSAO_TITLE }}</a>
+            <a class="section__link" href="{{ BASE_URL_DISCOURSE }}" title="Veja todas as discussões">{{ config.EXPRESSAO_TITLE }}</a>
           </h1>
 
           <div class="container container--card-list">
-            <a class="section__button" href="/expressao/">Ver todos</a>
+            <a class="section__button" href="{{ BASE_URL_DISCOURSE }}">Ver todos</a>
 
             <ul class="card-list">
               {% for topic in topics %}

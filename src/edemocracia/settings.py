@@ -352,3 +352,9 @@ OLARK_ID = config('OLARK_ID', default=None)
 # CORS
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_URLS_REGEX = r'^/api/.*$'
+
+BASE_URL_EDEMOCRACIA = config('BASE_URL_EDEMOCRACIA', default='/')
+BASE_URL_WIKILEGIS = config('BASE_URL_WIKILEGIS', default='/wikilegis/')
+BASE_URL_PAUTAS = config('BASE_URL_PAUTAS', default='/pautaparticipativa/')
+BASE_URL_AUDIENCIAS = config('BASE_URL_AUDIENCIAS', default='/audiencias/')
+BASE_URL_DISCOURSE = config('BASE_URL_DISCOURSE', default='/expressao/')

@@ -1,8 +1,8 @@
- <section class="section section--pauta">
+<section class="section section--pauta">
     <div class="e-row e-expanded">
 
       <div class="section__info section__block e-columns small-12 large-3">
-        <a href="/pautaparticipativa/"><img class="section__logo" src="/static/img/logo-pauta-participativa.svg" ></a>
+        <a href="{{ BASE_URL_PAUTAS }}"><img class="section__logo" src="/static/img/logo-pauta-participativa.svg" ></a>
         <p class="section__text">
           {{ config.PAUTAS_DESCRIPTION }}
         </p>
@@ -12,12 +12,12 @@
         <div class="section__content">
 
           <h1 class="section__title">
-            <a class="section__link" href="/pautaparticipativa/" title="Veja todas as pautas">{{ config.PAUTAS_TITLE }}</a>
+            <a class="section__link" href="{{ BASE_URL_PAUTAS }}" title="Veja todas as pautas">{{ config.PAUTAS_TITLE }}</a>
           </h1>
 
           <div class="container container--card-list">
 
-            <a class="section__button" href="/pautaparticipativa/">
+            <a class="section__button" href="{{ BASE_URL_PAUTAS }}">
               Ver todos
             </a>
 
