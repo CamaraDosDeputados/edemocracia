@@ -105,7 +105,7 @@ services:
       EMAIL_USE_TLS:
       EMAIL_BACKEND: django.core.mail.backends.smtp.EmailBackend
       DEFAULT_FROM_EMAIL: '"Portal e-Democracia" <edemocracia@camara.leg.br>'
-      STATIC_URL:
+      STATIC_URL: /edudemocracia/static/
       WIKILEGIS_ENABLED: 'True'
       WIKILEGIS_UPSTREAM: http://wikilegis:8000
       WIKILEGIS_API_URL: '/api/v1/'
@@ -114,7 +114,7 @@ services:
       AUDIENCIAS_UPSTREAM: http://audienciasweb:8000/edudemocracia/audiencias
       AUDIENCIAS_API_URL:
       AUDIENCIAS_API_KEY: secret_key
-      PAUTAS_ENABLED: 'True'
+      PAUTAS_ENABLED: 'False'
       PAUTAS_UPSTREAM: http://pauta:8000
       PAUTAS_API_URL:
       PAUTAS_API_KEY: api_key
