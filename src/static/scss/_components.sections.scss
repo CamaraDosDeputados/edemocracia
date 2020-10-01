@@ -175,7 +175,7 @@
 }
 
 .section--wikilegis {
-  background: url(../img/wikilegis-bg.png) center center fixed;
+  background-color: #144438;
   background-size: cover;
 
   & .section__text {
@@ -184,7 +184,7 @@
 
   & .section__title {
     &::before {
-      background-color: #00d574;
+      background-color: #5DAC2D;
     }
   }
 
@@ -193,16 +193,19 @@
   }
 
   & .section__button {
-    background-image: linear-gradient(#00d574, #00d574);
+    background-image: linear-gradient(#5DAC2D, #5DAC2D);
     color: white;
   }
 }
 
 .section--pauta {
-  background-color: whitesmoke;
+  background-color: #5BAF23;
+
+  a {
+    color: white;
+  }
 
   & .section__info {
-    background-color: white;
     color: #4c4c4c;
 
     & .section__logo {
@@ -212,13 +215,13 @@
 
   & .section__title {
     &::before {
-      background-color: #b0dcf7;
+      background-color: #154629;
     }
   }
 
   & .section__button {
-    background-image: linear-gradient(#b0dcf7, #b0dcf7);
-    color: #2c383a;
+    background-image: linear-gradient(#0D4B26, #0D4B26);
+    color: white;
   }
 }
 
@@ -236,25 +239,49 @@
   }
 
   & .section__text {
-    color: #656565;
+    color: #67A341;
   }
 
   & .section__link {
-    color: #2c383a;
+    color: #67A341;
   }
 
   & .section__button {
     background-image: linear-gradient(#4e9b95, #4e9b95);
-    color: #2c383a;
+    color: #67A341;
   }
 }
 
-.section--audiencias{
-  background-color: #2d7655;
+.section--deputado{
+  background-color: #F8FAF9;
 
   & .section__info {
-    background-color: #245d49;
+    background-color:#F8FAF9;
   }
+
+  & .section__text {
+    color: #38B6AB;
+  }
+
+  & .section__title {
+    &::before {
+      background-color: #38B6AA;
+    }
+  }
+
+  & .section__link {
+    color:#73A949;
+  }
+
+  & .section__button {
+    background-image: linear-gradient(#37B6AB, #37B6AB);
+    color: #73A246;
+  }
+}
+
+
+.section--audiencias{
+  background-color: #36B7AB;
 
   & .section__text {
     color: white;
@@ -262,19 +289,20 @@
 
   & .section__title {
     &::before {
-      background-color: #f8c300;
+      background-color: #C4C442;
     }
   }
 
   & .section__link {
-    color: white;
+    color:white;
   }
 
   & .section__button {
-    background-image: linear-gradient(#f8c300, #f8c300);
+    background-image: linear-gradient(#C4C442, #C4C442);
     color: white;
   }
 }
+
 
 .section--user-profile {
   background-color: #1c5c44;
@@ -293,6 +321,7 @@
     justify-content: flex-start;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    background-color: white;
   }
 
   & .section__block--profile-form {
@@ -492,6 +521,7 @@
   }
 
   > .firsthalf {
+    background-color:#36B7AB;
     display: flex;
     align-items: center;
     justify-content: center;
