@@ -34,7 +34,7 @@ class DeputadoPjb(models.Model):
     serie = models.TextField(null=True, blank=True)
     uf = models.TextField(null=True, blank=True)
     minibio = models.TextField(null=True, blank=True)
-    foto = models.BinaryField(null=True, blank=True)
+    foto = models.ImageField(upload_to="deputado_pjb_foto/", null=True, blank=True)
 
     def __str__(self):
         return self.nome
@@ -51,7 +51,7 @@ class ProjetoPjb(models.Model):
     autor = models.ForeignKey('DeputadoPjb', related_name='autor', on_delete=models.CASCADE)
     comissoes = models.ManyToManyField('ComissaoPjb', blank=True)
     relator = models.ForeignKey('DeputadoPjb', null=True, blank=True, related_name='relator', on_delete=models.CASCADE)
-    texto_original = models.TextField(null=True, blank=True)
+    texto_original = models.FileField(upload_to="projeto_pjb/", null=True, blank=True)
 
     def __str__(self):
         return self.numero
