@@ -10,7 +10,9 @@
     </div>
     <p class="info-card__text">
        Texto sobre o deputado
-       <a href="{{ deputado.foto.url }}">Foto</a>
+       {% if deputado.foto %}
+           <a href="{{ deputado.foto.url }}">Foto</a>
+       {% endif %}
     </p>
     <div class="info-card__footer">
       <div class="card-stats">

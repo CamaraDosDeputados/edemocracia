@@ -13,7 +13,9 @@
 
         Projeto de autoria de: {{ projeto.deputado.nome }} ({{ projeto.deputado.uf }})<br /><br />
         
-        <a href="{{ projeto.texto_original.url }}">Download</a>
+	{% if projeto.texto_original %}
+	    <a href="{{ projeto.texto_original.url }}">Download</a>
+	{% endif %}
     </p>
     <div class="info-card__footer">
       <div class="card-stats">
