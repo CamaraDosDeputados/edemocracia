@@ -10,12 +10,20 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AlterField(
+        migrations.RemoveField(
+            model_name='deputadopjb',
+            name='foto'
+        ),
+        migrations.RemoveField(
+            model_name='projetopjb',
+            name='texto_original'
+        ),
+        migrations.AddField(
             model_name='deputadopjb',
             name='foto',
             field=models.ImageField(blank=True, null=True, upload_to='deputado_pjb_foto/'),
         ),
-        migrations.AlterField(
+        migrations.AddField(
             model_name='projetopjb',
             name='texto_original',
             field=models.FileField(blank=True, null=True, upload_to='projeto_pjb/'),
