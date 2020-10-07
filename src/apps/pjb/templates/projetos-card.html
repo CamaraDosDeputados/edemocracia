@@ -6,14 +6,15 @@
 
       <div class="info-card__icon info-card__icon"><i class="icon"></i></div>
 
-      <h2 class="info-card__title">{{ projeto.numero }}</h2>
+      <h2 class="info-card__title">{{ projeto.sigla_tipo }} {{ projeto.numero }}/{{ projeto.ano }}</h2>
     </div>
     <p class="info-card__text">
         {{ projeto.nome }}<br /><br />
 
         Projeto de autoria de: {{ projeto.deputado.nome }} ({{ projeto.deputado.uf }})<br /><br />
-        
-        <a href="{{ projeto.texto_original.url }}">Download</a>
+        {% if projeto.texto_original %}
+            <a href="{{ projeto.texto_original.url }}">Download</a>
+        {% endif %}
     </p>
     <div class="info-card__footer">
       <div class="card-stats">

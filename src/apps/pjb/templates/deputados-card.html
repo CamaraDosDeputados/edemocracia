@@ -9,8 +9,10 @@
       <h2 class="info-card__title">{{ deputado.nome }} ({{ deputado.uf }})</h2>
     </div>
     <p class="info-card__text">
-       Texto sobre o deputado
-       <a href="{{ deputado.foto.url }}">Foto</a>
+        Texto sobre o deputado
+        {% if deputado.foto %}
+            <a href="{{ deputado.foto.url }}">Foto</a>
+        {% endif %}
     </p>
     <div class="info-card__footer">
       <div class="card-stats">

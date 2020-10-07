@@ -14,7 +14,7 @@ class DeputadoPjbAdmin(admin.ModelAdmin):
     ordering = ['edicao_pjb', 'nome']
 
 class ProjetoPjbAdmin(admin.ModelAdmin):
-    list_display = ['edicao_pjb', 'numero', 'ementa', 'entenda_a_proposta']
+    list_display = ['edicao_pjb', 'sigla_tipo', 'numero', 'ano', 'ementa', 'entenda_a_proposta']
     ordering = ['edicao_pjb', 'numero']
 
 admin.site.register(EdicaoPjb, EdicaoPjbAdmin)

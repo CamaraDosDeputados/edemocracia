@@ -61,11 +61,11 @@ services:
     depends_on:
       - db
     environment:
-      BASE_URL_EDEMOCRACIA: /edudemocracia/
-      BASE_URL_WIKILEGIS: /edudemocracia/wikilegis/
-      BASE_URL_PAUTAS: /edudemocracia/pautaparticipativa/
-      BASE_URL_AUDIENCIAS: /edudemocracia/audiencias/
-      BASE_URL_DISCOURSE: /edudemocracia/expressao/        
+      BASE_URL_EDEMOCRACIA: /pjb/participe/
+      BASE_URL_WIKILEGIS: /pjb/wikilegis/
+      BASE_URL_PAUTAS: /pjb/pautaparticipativa/
+      BASE_URL_AUDIENCIAS: /pjb/audiencias/
+      BASE_URL_DISCOURSE: /pjb/expressao/        
       MEDIA_URL: /media/
       ADMIN_EMAIL: admin@admin.com
       ADMIN_PASSWORD: 123
@@ -105,13 +105,13 @@ services:
       EMAIL_USE_TLS:
       EMAIL_BACKEND: django.core.mail.backends.smtp.EmailBackend
       DEFAULT_FROM_EMAIL: '"Portal e-Democracia" <edemocracia@camara.leg.br>'
-      STATIC_URL: /edudemocracia/static/
+      STATIC_URL: /pjb/static/
       WIKILEGIS_ENABLED: 'True'
       WIKILEGIS_UPSTREAM: http://wikilegis:8000
       WIKILEGIS_API_URL: '/api/v1/'
       WIKILEGIS_API_KEY: api_key
       AUDIENCIAS_ENABLED: 'True'
-      AUDIENCIAS_UPSTREAM: http://audienciasweb:8000/edudemocracia/audiencias
+      AUDIENCIAS_UPSTREAM: http://audienciasweb:8000/pjb/audiencias
       AUDIENCIAS_API_URL:
       AUDIENCIAS_API_KEY: secret_key
       PAUTAS_ENABLED: 'False'
@@ -119,7 +119,7 @@ services:
       PAUTAS_API_URL:
       PAUTAS_API_KEY: api_key
       DISCOURSE_ENABLED: 'True'
-      DISCOURSE_UPSTREAM: http://discourse:8080/edudemocracia/expressao
+      DISCOURSE_UPSTREAM: http://discourse:8080/pjb/expressao
       DISCOURSE_SSO_SECRET: sso_secret
 
   wikilegis:
@@ -137,19 +137,19 @@ services:
       ADMIN_EMAIL: admin@admin.com
       API_KEY: api_key
       SECRET_KEY: secret_key
-      FORCE_SCRIPT_NAME: /edudemocracia/wikilegis
+      FORCE_SCRIPT_NAME: /pjb/wikilegis
       DEBUG: 'False'
       ALLOWED_HOSTS: '*'
-      LOGIN_URL: /edudemocracia/
-      LOGIN_REDIRECT_URL: /edudemocracia/
+      LOGIN_URL: /pjb/
+      LOGIN_REDIRECT_URL: /pjb/
       AUTH_USER_MODEL: accounts.User
       ENABLE_REMOTE_USER: 'True'
       SESSION_COOKIE_NAME: wikilegis_session
       DEFAULT_FROM_EMAIL: '"Portal e-Democracia[Wikilegis]" <edemocracia@camara.leg.br>'
       LANGUAGE_CODE: pt-br
       TIME_ZONE: America/Sao_Paulo
-      STATIC_URL: /edudemocracia/wikilegis/static/
-      MEDIA_URL: /edudemocracia/wikilegis/media/
+      STATIC_URL: /pjb/wikilegis/static/
+      MEDIA_URL: /pjb/wikilegis/media/
       DATABASE_ENGINE: postgresql_psycopg2
       DATABASE_NAME: wikilegis
       DATABASE_PASSWORD: root
@@ -173,8 +173,8 @@ services:
       - ./audiencias/audiencias.conf:/etc/nginx/conf.d/audiencias.conf:z
       - ./tmpdata/:/tmp/data:z
     environment:
-      BASE_URL_EDEMOCRACIA: /edudemocracia/
-      URL_PREFIX: edudemocracia/audiencias
+      BASE_URL_EDEMOCRACIA: /pjb/
+      URL_PREFIX: pjb/audiencias
       ADMIN_PASSWORD: 123
       ADMIN_EMAIL: admin@admin.com
       ADMIN_USERNAME: admin
@@ -190,12 +190,12 @@ services:
       DEBUG: 'False'
       CAMARA_LOGIN: 'False'
       ENABLE_REMOTE_USER: 'True'
-      FORCE_SCRIPT_NAME: /edudemocracia/audiencias
-      STATIC_URL: /edudemocracia/audiencias/static/
+      FORCE_SCRIPT_NAME: /pjb/audiencias
+      STATIC_URL: /pjb/audiencias/static/
       SESSION_COOKIE_NAME: audiencias_session
-      LOGIN_URL: /edudemocracia/home
-      LOGIN_REDIRECT_URL: /edudemocracia/home
-      LOGOUT_REDIRECT_URL: /edudemocracia/home
+      LOGIN_URL: /pjb/home
+      LOGIN_REDIRECT_URL: /pjb/home
+      LOGOUT_REDIRECT_URL: /pjb/home
       ALLOWED_HOSTS: '*'
       GOOGLE_ANALYTICS_ID: ''
       OLARK_ID: ''
@@ -228,8 +228,8 @@ services:
       - ./audiencias/settings.py:/var/labhacker/audiencias/audiencias_publicas/settings.py:z
       - ./tmpdata/:/tmp/data:z
     environment:
-      BASE_URL_EDEMOCRACIA: /edudemocracia/
-      URL_PREFIX: edudemocracia/audiencias
+      BASE_URL_EDEMOCRACIA: /pjb/
+      URL_PREFIX: pjb/audiencias
       ADMIN_PASSWORD: 123
       ADMIN_EMAIL: admin@admin.com
       ADMIN_USERNAME: admin
@@ -245,12 +245,12 @@ services:
       DEBUG: 'False'
       CAMARA_LOGIN: 'False'
       ENABLE_REMOTE_USER: 'True'
-      FORCE_SCRIPT_NAME: /edudemocracia/audiencias
-      STATIC_URL: /edudemocracia/audiencias/static/
+      FORCE_SCRIPT_NAME: /pjb/audiencias
+      STATIC_URL: /pjb/audiencias/static/
       SESSION_COOKIE_NAME: audiencias_session
-      LOGIN_URL: /edudemocracia/home
-      LOGIN_REDIRECT_URL: /edudemocracia/home
-      LOGOUT_REDIRECT_URL: /edudemocracia/home
+      LOGIN_URL: /pjb/home
+      LOGIN_REDIRECT_URL: /pjb/home
+      LOGOUT_REDIRECT_URL: /pjb/home
       ALLOWED_HOSTS: '*'
       GOOGLE_ANALYTICS_ID: ''
       OLARK_ID: ''
@@ -333,7 +333,7 @@ services:
       DISCOURSE_DEVELOPER_EMAILS:
       DISCOURSE_REDIS_HOST: 'redis'
       DISCOURSE_REDIS_PORT: 6379
-      DISCOURSE_RELATIVE_URL_ROOT: '/edudemocracia/expressao'
+      DISCOURSE_RELATIVE_URL_ROOT: '/pjb/expressao'
       DISCOURSE_CONTACT_EMAIL:
       DISCOURSE_CONTACT_URL: 'localhost'
       DISCOURSE_NOTIFICATION_EMAIL: 'noreply@dicourse.org'

@@ -45,7 +45,9 @@ class DeputadoPjb(models.Model):
 
 class ProjetoPjb(models.Model):
     edicao_pjb = models.ForeignKey(EdicaoPjb, on_delete=models.CASCADE)
-    numero = models.TextField(help_text='Numeração completa')
+    sigla_tipo = models.CharField(max_length=3)
+    numero = models.CharField(max_length=4)
+    ano = models.IntegerField()
     ementa = models.TextField(null=True, blank=True)
     entenda_a_proposta = models.TextField(null=True, blank=True)
     autor = models.ForeignKey('DeputadoPjb', related_name='autor', on_delete=models.CASCADE)
