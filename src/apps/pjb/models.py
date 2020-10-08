@@ -55,8 +55,11 @@ class ProjetoPjb(models.Model):
     relator = models.ForeignKey('DeputadoPjb', null=True, blank=True, related_name='relator', on_delete=models.CASCADE)
     texto_original = models.FileField(upload_to="projeto_pjb/", null=True, blank=True)
 
+    def epigrafe(self):
+        return str(self)
+
     def __str__(self):
-        return self.numero
+        return '{} {}/{}'.format(self.sigla_tipo, self.numero, self.ano)
 
     class Meta:
         verbose_name = 'projeto PJB'
