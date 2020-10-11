@@ -1,7 +1,7 @@
 {% load edem_extras %}
 
 <a class="info-card__link" href="https://www2.camara.leg.br/a-camara/programas-institucionais/educacao-para-a-cidadania/parlamentojovem">
-  <li class="info-card info-card--wikilegis">
+  <li class="info-card info-card--enquetes-legislativas">
     <div class="info-card__header">
 
       <div class="info-card__icon info-card__icon"><i class="icon"></i></div>
@@ -13,7 +13,7 @@
 
         Projeto de autoria de: {{ projeto.deputado.nome }} ({{ projeto.deputado.uf }})<br /><br />
         {% if projeto.texto_original %}
-            <a href="{{ projeto.texto_original.url }}">Download</a>
+            <a class="info-card__text" href="{{ projeto.texto_original.url }}">Download</a>
         {% endif %}
     </p>
     <div class="info-card__footer">

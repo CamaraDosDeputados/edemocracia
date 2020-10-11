@@ -178,13 +178,16 @@
   background-color: #144438;
   background-size: cover;
 
+  & .section__info {
+    background-color: #2C5349;
+  }
   & .section__text {
     color: white;
   }
 
   & .section__title {
     &::before {
-      background-color: #5DAC2D;
+      background-color: white;
     }
   }
 
@@ -193,35 +196,28 @@
   }
 
   & .section__button {
-    background-image: linear-gradient(#5DAC2D, #5DAC2D);
+    background-image: linear-gradient(white, white);
     color: white;
   }
 }
 
 .section--pauta {
-  background-color: #5BAF23;
+  background-color: #51AA31;
 
-  a {
-    color: white;
-  }
-
-  & .section__info {
-    color: #4c4c4c;
-
-    & .section__logo {
-      width: 20em;
-    }
-  }
-
+  
   & .section__title {
     &::before {
-      background-color: #154629;
+      background-color: #083C31;
     }
+  }
+  
+  & .section__info {
+    background-color: #98E26D;
   }
 
   & .section__button {
-    background-image: linear-gradient(#0D4B26, #0D4B26);
-    color: white;
+    background-image: linear-gradient(#083C31, #083C31);
+    color: #083C31;
   }
 }
 
@@ -229,53 +225,53 @@
   background-color: #dfdfdf;
 
   & .section__info {
-    background-color: #efefef;
+    background-color: #FFFFFF;
   }
 
   & .section__title {
     &::before {
-      background-color: #4e9b95;
+      background-color: #083C31;
     }
   }
 
   & .section__text {
-    color: #67A341;
+    color: #083C31;
   }
 
   & .section__link {
-    color: #67A341;
+    color: #083C31;
   }
 
   & .section__button {
-    background-image: linear-gradient(#4e9b95, #4e9b95);
-    color: #67A341;
+    background-image: linear-gradient(#083C31, #083C31);
+    color: #083C31;
   }
 }
 
 .section--deputado{
-  background-color: #F8FAF9;
+  background-color: #FEBC23;
 
   & .section__info {
-    background-color:#F8FAF9;
+    background-color:#FDDB85;
   }
 
   & .section__text {
-    color: #38B6AB;
+    color: #083C31;
   }
 
   & .section__title {
     &::before {
-      background-color: #38B6AA;
+      background-color: #083C31;
     }
   }
 
   & .section__link {
-    color:#73A949;
+    color:#083C31;
   }
 
   & .section__button {
     background-image: linear-gradient(#37B6AB, #37B6AB);
-    color: #73A246;
+    color: #083C31;
   }
 }
 
@@ -283,13 +279,17 @@
 .section--audiencias{
   background-color: #36B7AB;
 
+  & .section__info{
+    background-color: #42C5BA;
+  }
+
   & .section__text {
     color: white;
   }
 
   & .section__title {
     &::before {
-      background-color: #C4C442;
+      background-color: white;
     }
   }
 
@@ -298,7 +298,7 @@
   }
 
   & .section__button {
-    background-image: linear-gradient(#C4C442, #C4C442);
+    background-image: linear-gradient(white, white);
     color: white;
   }
 }
@@ -511,6 +511,10 @@
 
 // XXX RSCSS code
 
+.white-link{
+  color: white
+}
+
 .owner-section {
   display: flex;
   flex-direction: column;
@@ -606,7 +610,6 @@
       text-align: center;
       @include breakpoint(large up) {
         margin-right: 64px;
-        text-align: left;
         padding: 0;
       }
 
