@@ -17,6 +17,10 @@
     justify-content: center;
   }
 }
+.card-list > *{
+  margin: 10px;
+
+}
 
 .container--card-list {
   display: flex;
@@ -55,7 +59,7 @@
   min-height: 20rem;
   width: 16rem;
   flex: 0 0 16rem;
-  padding: 1.2rem;
+  padding: 0px 0px 10px 0px;
   background-color: white;
   word-wrap: break-word;
   @include material-shadow(1);
@@ -63,21 +67,6 @@
   @include breakpoint(small only) {
     flex: 0 0 16rem;
     width: 16rem;
-  }
-
-  &__link {
-    display: flex;
-    flex: 0 0 16rem;
-    width: 16rem;
-    min-height: 20rem;
-    margin: 0.5rem;
-    &:first-child {
-      margin-left: 0;
-    }
-    @include breakpoint(small only) {
-      flex: 0 0 16rem;
-      width: 16rem;
-    }
   }
 
   &__header {
@@ -115,57 +104,99 @@
     text-align: center;
     margin-top: auto;
   }
+
+  &__text {
+    padding: 0px 10px;
+  }
 }
 
 .info-card--wikilegis {
 
   & .info-card__header {
-    padding-bottom: 1rem;
+    justify-content: flex-start;
+    height: 3rem;
+    padding: 0.5rem 1rem;
     margin-bottom: 1rem;
-    border-bottom: 2px solid black;
-    max-height: 5rem;
+    color: white;
+    background-color: #51AA31;
   }
 
   & .info-card__icon {
-    flex: 0 0 3.6rem;
-    height: 3.5rem;
-    border: 0.3rem solid #00d574;
-    border-radius: 50%;
+    margin-right: 0.8rem;
     font-size: 1.5rem;
-    margin-right: 1rem;
-
-    @include breakpoint(small only) {
-      flex: 0 0 2.8rem;
-      height: 2.8rem;
-      border: 0.2rem solid #00d574;
-      font-size: 1.2rem;
-      margin-right: 0.5rem;
-    }
-
-    &--closed {
-      border: 0.3rem solid #bfbfbf;
-
-      @include breakpoint(small only) {
-        border: 0.2rem solid #bfbfbf;
-      }
-    }
-
   }
 
   & .info-card__title {
-    max-height: 4rem;
+    font-size: 0.9rem;
+  }
 
-    @include breakpoint(small only) {
-      font-size: 0.8rem;
-    }
+  & .info-card__text {
+    font-weight: 600;
+    text-transform: uppercase;
   }
 
   & .card-stats__value {
-    color: #00d574;
+    color: #1b9894;
+  }
+}
+.info-card--jovens-deputados {
 
-    &--closed {
-      color: #bfbfbf;
-    }
+  & .info-card__header {
+    justify-content: flex-start;
+    height: 3rem;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    color: white;
+    background-color: #1b9894;
+  }
+
+  & .info-card__icon {
+    margin-right: 0.8rem;
+    font-size: 1.5rem;
+  }
+
+  & .info-card__title {
+    font-size: 0.9rem;
+  }
+
+  & .info-card__text {
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  & .card-stats__value {
+    color: #1b9894;
+  }
+}
+
+.info-card--enquetes-legislativas {
+
+  & .info-card__header {
+    justify-content: flex-start;
+    height: 3rem;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    color: white;
+    background-color: #083C31;
+  }
+
+  & .info-card__icon {
+    margin-right: 0.8rem;
+    font-size: 1.5rem;
+  }
+
+  & .info-card__title {
+    font-size: 0.9rem;
+  }
+
+  & .info-card__text {
+    font-weight: 600;
+    text-transform: uppercase;
+    color: black;
+  }
+
+  & .card-stats__value {
+    color: #1b9894;
   }
 }
 
@@ -177,7 +208,7 @@
     padding: 0.5rem 1rem;
     margin-bottom: 1rem;
     color: white;
-    background-color: #1b9894;
+    background-color: #FEBC23;
   }
 
   & .info-card__icon {
