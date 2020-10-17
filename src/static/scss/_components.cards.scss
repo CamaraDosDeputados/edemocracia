@@ -1,3 +1,7 @@
+.pjb-card {
+  width: min-content;
+}
+
 .card-list {
   display: flex;
   justify-content: flex-start;
@@ -90,7 +94,7 @@
     font-size: 0.9rem;
     text-transform: uppercase;
     font-weight: 600;
-    margin: 0;
+    margin: auto;
   }
 
   &__highlighted {
