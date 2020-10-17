@@ -1,4 +1,6 @@
 from django.db import models
+from datetime import datetime
+
 
 class EdicaoPjb(models.Model):
     nome = models.TextField()
@@ -15,8 +17,12 @@ class ComissaoPjb(models.Model):
     edicao_pjb = models.ForeignKey(EdicaoPjb, on_delete=models.CASCADE)
     nome = models.TextField(null=True, blank=True)
     sigla = models.TextField(null=True, blank=True)
-    presidente = models.ForeignKey('DeputadoPjb', null=True, blank=True, related_name='presidente', on_delete=models.CASCADE)
-    vice_presidente = models.ForeignKey('DeputadoPjb', null=True, blank=True, related_name='vice_presidente', on_delete=models.CASCADE)
+    presidente = models.ForeignKey('DeputadoPjb', null=True, blank=True,
+                                   related_name='presidente',
+                                   on_delete=models.CASCADE)
+    vice_presidente = models.ForeignKey('DeputadoPjb', null=True, blank=True,
+                                        related_name='vice_presidente',
+                                        on_delete=models.CASCADE)
     integrantes = models.ManyToManyField('DeputadoPjb', blank=True)
 
     def __str__(self):
@@ -26,6 +32,7 @@ class ComissaoPjb(models.Model):
         verbose_name = 'comissão PJB'
         verbose_name_plural = 'comissões PJB'
 
+
 class DeputadoPjb(models.Model):
     edicao_pjb = models.ForeignKey(EdicaoPjb, on_delete=models.CASCADE)
     nome = models.TextField(null=True, blank=True)
@@ -34,7 +41,8 @@ class DeputadoPjb(models.Model):
     serie = models.TextField(null=True, blank=True)
     uf = models.TextField(null=True, blank=True)
     minibio = models.TextField(null=True, blank=True)
-    foto = models.ImageField(upload_to="deputado_pjb_foto/", null=True, blank=True)
+    foto = models.ImageField(upload_to="deputado_pjb_foto/", null=True,
+                             blank=True)
 
     def __str__(self):
         return self.nome
@@ -43,6 +51,14 @@ class DeputadoPjb(models.Model):
         verbose_name = 'deputado PJB'
         verbose_name_plural = 'deputados PJB'
 
+    @property
+    def idade(self):
+        if not self.data_nascimento:
+            return 0
+        delta = datetime.now().date() - self.data_nascimento
+        return int(delta.days / 365.25)
+
+
 class ProjetoPjb(models.Model):
     edicao_pjb = models.ForeignKey(EdicaoPjb, on_delete=models.CASCADE)
     sigla_tipo = models.CharField(max_length=3)
@@ -50,10 +66,14 @@ class ProjetoPjb(models.Model):
     ano = models.IntegerField()
     ementa = models.TextField(null=True, blank=True)
     entenda_a_proposta = models.TextField(null=True, blank=True)
-    autor = models.ForeignKey('DeputadoPjb', related_name='autor', on_delete=models.CASCADE)
+    autor = models.ForeignKey('DeputadoPjb', related_name='autor',
+                              on_delete=models.CASCADE)
     comissoes = models.ManyToManyField('ComissaoPjb', blank=True)
-    relator = models.ForeignKey('DeputadoPjb', null=True, blank=True, related_name='relator', on_delete=models.CASCADE)
-    texto_original = models.FileField(upload_to="projeto_pjb/", null=True, blank=True)
+    relator = models.ForeignKey('DeputadoPjb', null=True, blank=True,
+                                related_name='relator',
+                                on_delete=models.CASCADE)
+    texto_original = models.FileField(upload_to="projeto_pjb/", null=True,
+                                      blank=True)
 
     def epigrafe(self):
         return str(self)
@@ -64,6 +84,3 @@ class ProjetoPjb(models.Model):
     class Meta:
         verbose_name = 'projeto PJB'
         verbose_name_plural = 'projetos PJB'
-
-
-    

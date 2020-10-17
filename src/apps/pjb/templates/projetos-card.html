@@ -1,6 +1,6 @@
 {% load edem_extras %}
 
-<a class="info-card__link" href="https://www2.camara.leg.br/a-camara/programas-institucionais/educacao-para-a-cidadania/parlamentojovem">
+<a class="info-card__link" href="{% url 'projeto-detail' id=projeto.id %}">
   <li class="info-card info-card--enquetes-legislativas">
     <div class="info-card__header">
 
@@ -9,27 +9,9 @@
       <h2 class="info-card__title">{{ projeto.sigla_tipo }} {{ projeto.numero }}/{{ projeto.ano }}</h2>
     </div>
     <p class="info-card__text">
-        {{ projeto.nome }}<br /><br />
+        {{ projeto.ementa }}<br /><br />
 
-        Projeto de autoria de: {{ projeto.deputado.nome }} ({{ projeto.deputado.uf }})<br /><br />
-        {% if projeto.texto_original %}
-            <a class="info-card__text" href="{{ projeto.texto_original.url }}">Download</a>
-        {% endif %}
+        Autor(a): {{ projeto.autor.nome }}<br /><br />
     </p>
-    <div class="info-card__footer">
-      <div class="card-stats">
-        <div class="card-stats__name">Propostas</div>
-
-        <div class="card-stats__value card-stats__value"></div>
-
-      </div>
-
-      <div class="card-stats">
-
-        <div class="card-stats__name">Participe até:</div>
-        <div class="card-stats__value card-stats__value"></div>
-
-      </div>
-    </div>
   </li>
 </a>

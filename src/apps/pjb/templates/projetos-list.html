@@ -1,10 +1,11 @@
-{% load staticfiles %}
+{% extends 'base-pjb.html' %}
+{% load static %}
+{% block inner_content %}
 
 <section class="section section--pauta">
     <div class="e-row e-expanded">
-
       <div class="section__info section__block e-columns small-12 large-3">
-        <a href="{% url 'projeto-list' %}"><img class="section__logo" src="{% static 'img/Marca_Enquetes_COR.png' %}" ></a>
+        <img class="section__logo" src="{% static 'img/Marca_Enquetes_COR.png' %}" >
         <p class="section__text">
           Sua opinião pode mudar os projetos de lei apresentados pelos jovens deputados 
         </p>
@@ -12,18 +13,9 @@
 
       <div class="section__block e-columns small-12 large-9">
         <div class="section__content">
-
-          <h1 class="section__title">
-            <a class="section__link" href="{% url 'projeto-list' %}" title="Vote e apoie seus projetos favoritos">VOTE E APOIE SEUS PROJETOS FAVORITOS</a>
-          </h1>
-
+          <h1 class="section__title">VOTE E APOIE SEUS PROJETOS FAVORITOS</h1>
           <div class="container container--card-list">
-
-            <a class="section__button" href="{% url 'projeto-list' %}">
-              Ver mais >>
-            </a>
-
-            <ul class="card-list">
+            <ul class="card-list card-list--wrapped">
                 {% for projeto in projetos %}
                     {% include "projetos-card.html" %}
                 {% empty %}
@@ -44,3 +36,4 @@
 
     </div>
   </section>
+{% endblock inner_content %}
