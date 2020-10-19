@@ -1,0 +1,34 @@
+{% extends 'base-pjb.html' %}
+{% load static %}
+{% block inner_content %}
+
+  <section class="section section--deputado">
+      <div class="e-row e-expanded">
+          <div class="section__info section__block e-columns small-12 large-3">
+              <img class="section__logo" src="{% static 'img/Marca_Jovens_Deputados_COR.png' %}">
+              <p class="section__text">
+                  Conheça os parlamentares selecionados para a edição 2020
+              </p>
+          </div>
+  
+          <div class="section__block e-columns small-12 large-9">
+              <div class="section__content">
+  
+                <h1 class="section__title">Deputado(a) jovem {{deputado.nome}}</h1>
+                {% if deputado.foto %}
+                <img class="pjb-card" src="{{deputado.foto.url}}"/>
+                {% endif %}
+                <h5>{{deputado.nome}}, {{deputado.idade}} anos</h5>
+                <h5>{{deputado.serie}} do Ensino Médio integrado ao {{deputado.escola}} - {{deputado.uf}}</h5>
+                <h5>Minibio: {{deputado.minibio}}</h5>
+                {% if projeto %}
+                    <a href="{% url 'projeto-detail' id=projeto.id %}"><h5>Proposta de lei {{projeto.numero}}/{{projeto.ano}}</h5></a>
+                {% endif %}
+                
+  
+              </div>
+          </div>
+  
+      </div>
+  </section>
+{% endblock inner_content %}

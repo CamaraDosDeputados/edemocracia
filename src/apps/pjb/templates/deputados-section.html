@@ -5,10 +5,10 @@
 
         <div class="section__info section__block e-columns small-12 large-3">
             <a
-                href="https://www2.camara.leg.br/a-camara/programas-institucionais/educacao-para-a-cidadania/parlamentojovem"><img
+                href="{% url 'deputado-list' %}"><img
                     class="section__logo" src="{% static 'img/Marca_Jovens_Deputados_COR.png' %}"></a>
             <p class="section__text">
-                Conheça os jovens deputados da Edição 2020
+                Conheça os parlamentares selecionados para a edição 2020
             </p>
         </div>
 
@@ -17,14 +17,14 @@
 
                 <h1 class="section__title">
                     <a class="section__link"
-                        href="https://www2.camara.leg.br/a-camara/programas-institucionais/educacao-para-a-cidadania/parlamentojovem"
-                        title="Conheça o representante do seu estado">CONHEÇA O REPRESENTANTE DO SEU ESTADO</a>
+                        href="{% url 'deputado-list' %}"
+                        title="Conheça quem representa seu estado">CONHEÇA QUEM REPRESENTA SEU ESTADO</a>
                 </h1>
 
                 <div class="container container--card-list">
 
                     <a class="section__button"
-                        href="https://www2.camara.leg.br/a-camara/programas-institucionais/educacao-para-a-cidadania/parlamentojovem">
+                        href="{% url 'deputado-list' %}">
                         Ver mais >>
                     </a>
 
