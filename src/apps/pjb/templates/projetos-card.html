@@ -9,9 +9,8 @@
       <h2 class="info-card__title">{{ projeto.sigla_tipo }} {{ projeto.numero }}/{{ projeto.ano }}</h2>
     </div>
     <p class="info-card__text">
-        {{ projeto.ementa }}<br /><br />
-
-        Autor(a): {{ projeto.autor.nome }}<br /><br />
+        {{ projeto.ementa|truncatechars:125 }}<br /><br />
+        Autor(a): {{ projeto.autor.nome|truncatechars:26 }}<br /><br />
     </p>
   </li>
 </a>
