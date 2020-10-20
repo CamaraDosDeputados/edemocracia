@@ -171,6 +171,15 @@
   & .card-stats__value {
     color: #1b9894;
   }
+
+  p {
+    display: inline-grid;
+    justify-items: center;
+  }
+
+  img {
+    height: 210px;
+  }
 }
 
 .info-card--enquetes-legislativas {
