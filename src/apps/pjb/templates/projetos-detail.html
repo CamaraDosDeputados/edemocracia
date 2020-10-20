@@ -19,8 +19,9 @@
                 <h5>Texto Original: {{projeto.texto_original}}</h5>
                 <h5>Entenda a proposta: {{projeto.entenda_a_proposta}}</h5>
                 <a href="{% url 'deputado-detail' id=projeto.autor.id %}"><h5>Autor: {{projeto.autor.nome}}</h5></a>
-                <a href="{% url 'deputado-detail' id=projeto.relator.id %}"><h5>Relator: {{projeto.relator.nome}}</h5></a>
-  
+                {% if projeto.relator %}
+                  <a href="{% url 'deputado-detail' id=projeto.relator.id %}"><h5>Relator: {{projeto.relator.nome}}</h5></a>
+                {% endif %}
               </div>
           </div>
   
