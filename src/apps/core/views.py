@@ -27,15 +27,16 @@ class EdemProxyView(DiazoProxyView):
 
 
 def index(request):
+    records_limit = 6
     context = {}
     if settings.PAUTAS_ENABLED:
         context['pautas'] = get_pautas_index_data()
 
     if settings.WIKILEGIS_ENABLED:
-        context['bills'] = get_wikilegis_index_data()
+        context['bills'] = get_wikilegis_index_data(records_limit)
 
     if settings.DISCOURSE_ENABLED:
-        context['topics'] = get_discourse_index_data(6)
+        context['topics'] = get_discourse_index_data(records_limit)
 
     if settings.AUDIENCIAS_ENABLED:
         rooms = get_audiencias_index_data()
@@ -49,7 +50,7 @@ def index(request):
         random_ids = random.sample(list(ids), min(len(ids), amount))
         return model.objects.filter(id__in=random_ids)
 
-    context['deputados'] = get_random_records(DeputadoPjb, 6)
-    context['projetos'] = get_random_records(ProjetoPjb, 6)
+    context['deputados'] = get_random_records(DeputadoPjb, records_limit)
+    context['projetos'] = get_random_records(ProjetoPjb, records_limit)
 
     return render(request, 'index.html', context)
