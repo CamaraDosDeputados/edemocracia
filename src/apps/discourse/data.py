@@ -1,18 +1,29 @@
 from django.conf import settings
 import requests
+import random
 
 
-def get_discourse_index_data():
+def get_categories():
     categories_url = settings.DISCOURSE_UPSTREAM + '/categories.json'
     categories = requests.get(categories_url).json()
     categories = categories['category_list']['categories']
+    return categories
 
+
+def get_latest():
     latest_url = settings.DISCOURSE_UPSTREAM + '/latest.json'
     latest = requests.get(latest_url).json()
     latest = latest['topic_list']['topics']
+    return latest
+
+
+def get_discourse_index_data(amount):
+    categories = get_categories()
+    latest = get_latest()
+    randomly_selected_latest = random.sample(latest, amount)
 
     topics = []
-    for topic in latest[:10]:
+    for topic in randomly_selected_latest:
         topic_category = None
 
         for category in categories:

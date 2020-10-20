@@ -35,7 +35,7 @@ def index(request):
         context['bills'] = get_wikilegis_index_data()
 
     if settings.DISCOURSE_ENABLED:
-        context['topics'] = get_discourse_index_data()
+        context['topics'] = get_discourse_index_data(6)
 
     if settings.AUDIENCIAS_ENABLED:
         rooms = get_audiencias_index_data()
