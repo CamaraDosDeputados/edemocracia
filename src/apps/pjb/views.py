@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404
 
 
 def deputado_list_view(request):
-    deputados = DeputadoPjb.objects.all()
+    deputados = DeputadoPjb.objects.all().order_by('nome')
     return render(request, 'deputados-list.html', {"deputados": deputados})
 
 
@@ -19,7 +19,8 @@ def deputado_detail_view(request, id):
 
 
 def projeto_list_view(request):
-    projetos = ProjetoPjb.objects.all()
+    projetos = ProjetoPjb.objects.extra(select={'numero_convertido': 'CAST(numero AS INTEGER)'}).order_by('numero_convertido')
+
     return render(request, 'projetos-list.html', {"projetos": projetos})
 
 

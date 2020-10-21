@@ -3,15 +3,11 @@
 <a class="info-card__link" href="{% url 'projeto-detail' id=projeto.id %}">
   <li class="info-card info-card--enquetes-legislativas">
     <div class="info-card__header">
-
-      <div class="info-card__icon info-card__icon"><i class="icon"></i></div>
-
-      <h2 class="info-card__title">{{ projeto.sigla_tipo }} {{ projeto.numero }}/{{ projeto.ano }}</h2>
+      <h2 class="info-card__title"><b>{{ projeto.sigla_tipo }} {{ projeto.numero }}/{{ projeto.ano }}</b></h2>
     </div>
     <p class="info-card__text">
-        {{ projeto.ementa }}<br /><br />
-
-        Autor(a): {{ projeto.autor.nome }}<br /><br />
+        {{ projeto.ementa|truncatechars:125 }}<br /><br />
+        Autor(a): {{ projeto.autor.nome|truncatechars:26 }}<br /><br />
     </p>
   </li>
 </a>

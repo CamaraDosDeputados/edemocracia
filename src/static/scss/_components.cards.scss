@@ -136,7 +136,6 @@
 
   & .info-card__text {
     font-weight: 600;
-    text-transform: uppercase;
   }
 
   & .card-stats__value {
@@ -171,6 +170,15 @@
   & .card-stats__value {
     color: #1b9894;
   }
+
+  p {
+    display: inline-grid;
+    justify-items: center;
+  }
+
+  img {
+    height: 210px;
+  }
 }
 
 .info-card--enquetes-legislativas {
@@ -190,12 +198,11 @@
   }
 
   & .info-card__title {
-    font-size: 0.9rem;
+    font-size: 1.5rem;
   }
 
   & .info-card__text {
     font-weight: 600;
-    text-transform: uppercase;
     color: black;
   }
 
