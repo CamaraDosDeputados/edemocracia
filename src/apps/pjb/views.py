@@ -19,7 +19,9 @@ def deputado_detail_view(request, id):
 
 
 def projeto_list_view(request):
-    projetos = ProjetoPjb.objects.extra(select={'numero_convertido': 'CAST(numero AS INTEGER)'}).order_by('numero_convertido')
+    projetos = ProjetoPjb.objects.extra(
+        select={'numero_convertido': 'CAST(numero AS INTEGER)'}
+    ).order_by('numero_convertido')
 
     return render(request, 'projetos-list.html', {"projetos": projetos})
 
