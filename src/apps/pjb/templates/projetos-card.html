@@ -6,8 +6,8 @@
       <h2 class="info-card__title"><b>{{ projeto.sigla_tipo }} {{ projeto.numero }}/{{ projeto.ano }}</b></h2>
     </div>
     <p class="info-card__text">
-        {{ projeto.ementa|truncatechars:125 }}<br /><br />
-        Autor(a): {{ projeto.autor.nome|truncatechars:26 }}<br /><br />
+        {{ projeto.ementa|truncatechars:145 }}<br /><br />
+        <b>Autor(a): {{ projeto.autor.nome|truncatechars:26 }}</b><br /><br />
     </p>
   </li>
 </a>
