@@ -125,7 +125,7 @@
   & .info-card__header {
     justify-content: flex-start;
     height: 3rem;
-    padding: 0.5rem 1rem;
+    padding: 0.3rem 1rem;
     margin-bottom: 1rem;
     color: white;
     background-color: #51AA31;
@@ -138,6 +138,7 @@
 
   & .info-card__title {
     font-size: 0.9rem;
+    text-align: center;
   }
 
   & .info-card__text {
