@@ -3,7 +3,7 @@
 <a class="info-card__link" href="{% url 'deputado-detail' id=deputado.id %}">
   <li class="info-card info-card--jovens-deputados">
     <div class="info-card__header">
-      <h2 class="info-card__title">{{ deputado.nome }} ({{ deputado.uf }})</h2>
+      <h2 class="info-card__title-center">{{ deputado.nome|title }} ({{ deputado.uf }})</h2>
     </div>
     <p class="info-card__text">
         {% if deputado.foto %}
