@@ -12,15 +12,19 @@
         </div>
   
           <div class="section__block e-columns small-12 large-9">
-              <div class="section__content">
+              <div class="section__alternative-content">
   
                 <h1 class="section__title">Proposta legislativa {{projeto.numero}}/{{projeto.ano}}</h1>
-                <h5>Ementa: {{projeto.ementa}}</h5>
-                <h5>Texto Original: {{projeto.texto_original}}</h5>
-                <h5>Entenda a proposta: {{projeto.entenda_a_proposta}}</h5>
-                <a href="{% url 'deputado-detail' id=projeto.autor.id %}"><h5>Autor: {{projeto.autor.nome}}</h5></a>
+                <br><br><br><br><br><br><br>
+
+                <h5><b>Ementa:</b> {{projeto.ementa}}</h5>
+                {% if projeto.texto_original %}
+                  <h5><a class="white-link" href="{{projeto.texto_original.url}}">Texto Original</a></h5>
+                {% endif %}
+                <h5><b>Entenda a proposta:</b> {{projeto.entenda_a_proposta}}</h5>
+                <h5><b>Autor(a):</b><a class="white-link" href="{% url 'deputado-detail' id=projeto.autor.id %}">{{projeto.autor.nome}}</a></h5>
                 {% if projeto.relator %}
-                  <a href="{% url 'deputado-detail' id=projeto.relator.id %}"><h5>Relator: {{projeto.relator.nome}}</h5></a>
+                <h5><a class="white-link" href="{% url 'deputado-detail' id=projeto.relator.id %}">Relator: {{projeto.relator.nome}}</a></h5>
                 {% endif %}
               </div>
           </div>
