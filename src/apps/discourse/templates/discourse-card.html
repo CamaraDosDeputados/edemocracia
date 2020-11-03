@@ -1,13 +1,12 @@
 {% load edem_extras %}
 
-<a class="info-card__link" href="{{SITE_URL}}/expressao/t/{{topic.slug}}">
+<a class="info-card__link" href="{{ BASE_URL_DISCOURSE }}t/{{topic.slug}}/{{topic.id}}">
   <li class="info-card info-card--discourse info-card--{{topic.category_slug}}">
     <div class="info-card__header">
       <div class="info-card__icon"><i class="icon icon-{{topic.category_slug}}"></i></div>
-      <h2 class="info-card__title">{{topic.category_name}}</h2>
+      <h2 class="info-card__title">{{topic.title}}</h2>
     </div>
     <p class="info-card__text">
-      {{topic.title}}
     </p>
     <div class="info-card__footer">
       <div class="card-stats">

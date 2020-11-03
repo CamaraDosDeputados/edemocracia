@@ -92,9 +92,15 @@
 
   &__title {
     font-size: 0.9rem;
-    text-transform: uppercase;
     font-weight: 600;
     margin: auto;
+  }
+
+  &__title-center {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: auto;
+    text-align: center;
   }
 
   &__highlighted {
@@ -119,7 +125,7 @@
   & .info-card__header {
     justify-content: flex-start;
     height: 3rem;
-    padding: 0.5rem 1rem;
+    padding: 0.3rem 1rem;
     margin-bottom: 1rem;
     color: white;
     background-color: #51AA31;
@@ -132,6 +138,7 @@
 
   & .info-card__title {
     font-size: 0.9rem;
+    text-align: center;
   }
 
   & .info-card__text {
@@ -147,7 +154,7 @@
   & .info-card__header {
     justify-content: flex-start;
     height: 3rem;
-    padding: 0.5rem 1rem;
+    padding: 0.3rem 1rem;
     margin-bottom: 1rem;
     color: white;
     background-color: #1b9894;

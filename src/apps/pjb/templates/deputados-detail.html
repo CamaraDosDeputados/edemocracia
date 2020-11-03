@@ -12,17 +12,19 @@
           </div>
   
           <div class="section__block e-columns small-12 large-9">
-              <div class="section__content">
+              <div class="section__alternative-content">
   
                 <h1 class="section__title">Deputado(a) jovem {{deputado.nome}}</h1>
+                <br>
                 {% if deputado.foto %}
                 <img class="pjb-card" src="{{deputado.foto.url}}"/>
                 {% endif %}
-                <h5><b>{{deputado.nome}}</b>, {{deputado.idade}} anos</h5>
+                <br>
+                <h5><b>{{deputado.nome}}, {{deputado.idade}} anos</b></h5>
                 <h5>{{deputado.serie}} do Ensino Médio integrado ao {{deputado.escola}} - {{deputado.uf}}</h5>
-                <h5>Minibio: {{deputado.minibio}}</h5>
+                <h5><b>Minibio: </b>{{deputado.minibio}}</h5>
                 {% if projeto %}
-                    <a href="{% url 'projeto-detail' id=projeto.id %}"><h5>Proposta de lei {{projeto.numero}}/{{projeto.ano}}</h5></a>
+                    <a href="{% url 'projeto-detail' id=projeto.id %}"><h5><b>Proposta de lei {{projeto.numero}}/{{projeto.ano}}</b></h5></a>
                 {% endif %}
                 
   

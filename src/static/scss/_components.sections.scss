@@ -26,6 +26,12 @@
     width: 100%;
   }
 
+  &__alternative-content {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin-left: -110px;
+  }
 
   &__content-wrapper {
     width: 100%;
@@ -81,14 +87,12 @@
     font-size: 2.5rem;
     font-weight: 700;
     line-height: 1.2;
-    text-transform: uppercase;
     margin-bottom: 0;
     padding-top: 1rem;
     text-indent: -0.2rem;
     width: 100%;
 
     @include breakpoint(small only) {
-      text-align: center;
       font-size: 1.6rem;
     }
 
@@ -214,6 +218,10 @@
 
   & .section__button {
     background-image: linear-gradient(#083C31, #083C31);
+    color: #083C31;
+  }
+
+  & .section__link {
     color: #083C31;
   }
 }
