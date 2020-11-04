@@ -3,6 +3,7 @@ from django.conf import settings
 
 def settings_variables(request):
     return {
+        'SITE_NAME': settings.SITE_NAME,
         'SITE_URL': settings.SITE_URL,
         'RECAPTCHA_SITE_KEY': settings.RECAPTCHA_SITE_KEY,
         'GOOGLE_ANALYTICS_ID': settings.GOOGLE_ANALYTICS_ID,
