@@ -28,9 +28,11 @@ services:
       - pauta:/var/labhacker/pauta-participativa/src/public/
       - newwikilegis:/var/labhacker/new-wikilegis/src/public/
     ports:
-      - "8000:80"
+      - "50003:80"
     links:
       - edemocracia
+    env_file:
+      - ./.env
 
   db:
     image: postgres:9.6
@@ -66,14 +68,14 @@ services:
       BASE_URL_PAUTAS: /pjb/pautaparticipativa/
       BASE_URL_AUDIENCIAS: /pjb/audiencias/
       BASE_URL_DISCOURSE: /pjb/expressao/        
-      MEDIA_URL: /media/
+      MEDIA_URL: /pjb/participe/media/
       ADMIN_EMAIL: admin@admin.com
       ADMIN_PASSWORD: 123
       ADMIN_USERNAME: admin
       SITE_NAME:
       SITE_LOGO:
       SITE_URL: http://localhost:8000
-      DEBUG: 'True'
+      DEBUG: 'False'
       SECRET_KEY:
       RECAPTCHA_SITE_KEY:
       RECAPTCHA_PRIVATE_KEY:
@@ -105,7 +107,7 @@ services:
       EMAIL_USE_TLS:
       EMAIL_BACKEND: django.core.mail.backends.smtp.EmailBackend
       DEFAULT_FROM_EMAIL: '"Portal e-Democracia" <edemocracia@camara.leg.br>'
-      STATIC_URL: /pjb/static/
+      STATIC_URL: /pjb/participe/static/
       WIKILEGIS_ENABLED: 'True'
       WIKILEGIS_UPSTREAM: http://wikilegis:8000
       WIKILEGIS_API_URL: '/api/v1/'
@@ -121,6 +123,8 @@ services:
       DISCOURSE_ENABLED: 'True'
       DISCOURSE_UPSTREAM: http://discourse:8080/pjb/expressao
       DISCOURSE_SSO_SECRET: sso_secret
+    env_file:
+      - ./.env
 
   wikilegis:
     image: labhackercd/wikilegis:2.3.0
@@ -130,6 +134,7 @@ services:
     depends_on:
       - db
     volumes:
+      - ./wikilegis/settings_edemocracia.py:/var/labhacker/wikilegis/wikilegis/wikilegis/settings/settings_edemocracia.py:z
       - wikilegis:/var/labhacker/wikilegis/wikilegis/public/:z
       - ./:/tmp/data:z
     environment:
@@ -156,6 +161,9 @@ services:
       DATABASE_USER: root
       DATABASE_HOST: db
       DATABASE_PORT: 5432
+      BASE_URL_EDEMOCRACIA: /pjb/participe/
+    env_file:
+      - ./.env
     expose:
       - "8000"
 
@@ -173,7 +181,7 @@ services:
       - ./audiencias/audiencias.conf:/etc/nginx/conf.d/audiencias.conf:z
       - ./tmpdata/:/tmp/data:z
     environment:
-      BASE_URL_EDEMOCRACIA: /pjb/
+      BASE_URL_EDEMOCRACIA: /pjb/participe/
       URL_PREFIX: pjb/audiencias
       ADMIN_PASSWORD: 123
       ADMIN_EMAIL: admin@admin.com
@@ -209,6 +217,8 @@ services:
       WEBSERVICE_URL: 
       COMPRESS_OFFLINE: 'True'
       WORDS_BLACK_LIST: 'merda,cu,cuzao,cuzona,cusao,cusona,bunda,fodido,fodida,foda,foder,fodedor,fudido,fudida,fuder,chupa,chupada,chupador,chupadora,boquete,boqueteira,boquetera,boketeira,boketera,xupa,xupada,xupador,xupadora,pauduro,pauzudo,xoxota,chochota,buceta,boceta,busseta,bosseta,cacete,cassete,caceta,kacete,kassete,caralho,karalho,caraleo,pinto,pica,rola,roludo,gozado,gozada,goso,gosa,gosado,gosado,puta,puto,putinho,putinha,putona,putana,putaria,grelo,grelinho,filhodaputa,filhosdaputa,puta,fdps,siririca,punheta,trepar,trepada,trepadeira,caralho,caralhu,karalho,karalhu,tomarnocu,tomanocu,vadia,bosta,quenga,rabo,bolsa,cuzinho,piroca,pqp,puta que pariu,porra,carai,cú,viado,fdp,vtnc,corno,bicha,bixa,viado,viadinho,pederasta,filho da puta,bundao,bundão,filho de uma egua,filho de uma égua,achacador,achacadora,achacadores,achacar,babaca,bucetas,cagar,cagaram,cambada,caráleo,corja,cornão,covarde,covardes,cretino,cus,cús,cusão,cuzão,cuzinho,cuzona,danar,desgraça,drosoba,enrabar,escória,escroto,escrotas,escrotos,fodão,fodona,fudendo,fuder,idiota,imundo,imundos,ku,kú,lascar,merdas,patifaria,pilantra,pilantragem,pilantras,poha,porcaria,putas,putos,sacanagem,safadeza,safado,safados,salafrário,salafrários,vagabundagem,vagabundo,vagabundos,veadinho,veadinhos'
+    env_file:
+      - ./.env
     expose:
       - "8000"
     depends_on:
@@ -228,7 +238,7 @@ services:
       - ./audiencias/settings.py:/var/labhacker/audiencias/audiencias_publicas/settings.py:z
       - ./tmpdata/:/tmp/data:z
     environment:
-      BASE_URL_EDEMOCRACIA: /pjb/
+      BASE_URL_EDEMOCRACIA: /pjb/participe/
       URL_PREFIX: pjb/audiencias
       ADMIN_PASSWORD: 123
       ADMIN_EMAIL: admin@admin.com
@@ -264,6 +274,8 @@ services:
       WEBSERVICE_URL: 
       COMPRESS_OFFLINE: 'True'
       WORDS_BLACK_LIST: 'merda,cu,cuzao,cuzona,cusao,cusona,bunda,fodido,fodida,foda,foder,fodedor,fudido,fudida,fuder,chupa,chupada,chupador,chupadora,boquete,boqueteira,boquetera,boketeira,boketera,xupa,xupada,xupador,xupadora,pauduro,pauzudo,xoxota,chochota,buceta,boceta,busseta,bosseta,cacete,cassete,caceta,kacete,kassete,caralho,karalho,caraleo,pinto,pica,rola,roludo,gozado,gozada,goso,gosa,gosado,gosado,puta,puto,putinho,putinha,putona,putana,putaria,grelo,grelinho,filhodaputa,filhosdaputa,puta,fdps,siririca,punheta,trepar,trepada,trepadeira,caralho,caralhu,karalho,karalhu,tomarnocu,tomanocu,vadia,bosta,quenga,rabo,bolsa,cuzinho,piroca,pqp,puta que pariu,porra,carai,cú,viado,fdp,vtnc,corno,bicha,bixa,viado,viadinho,pederasta,filho da puta,bundao,bundão,filho de uma egua,filho de uma égua,achacador,achacadora,achacadores,achacar,babaca,bucetas,cagar,cagaram,cambada,caráleo,corja,cornão,covarde,covardes,cretino,cus,cús,cusão,cuzão,cuzinho,cuzona,danar,desgraça,drosoba,enrabar,escória,escroto,escrotas,escrotos,fodão,fodona,fudendo,fuder,idiota,imundo,imundos,ku,kú,lascar,merdas,patifaria,pilantra,pilantragem,pilantras,poha,porcaria,putas,putos,sacanagem,safadeza,safado,safados,salafrário,salafrários,vagabundagem,vagabundo,vagabundos,veadinho,veadinhos'
+    env_file:
+      - ./.env
     volumes:
       - audiencias:/var/labhacker/audiencias/public/:z
       - ./:/tmp/data:z
@@ -281,6 +293,7 @@ services:
     depends_on:
       - db
     environment:
+      BASE_URL_EDEMOCRACIA: /pjb/participe/
       SECRET_KEY:
       API_KEY: api_key
       RECAPTCHA_SITE_KEY:
@@ -303,6 +316,8 @@ services:
       EMAIL_USE_TLS:
       DEFAULT_FROM_EMAIL: '"Portal e-Democracia[pautaparticipativa]" <edemocracia@camara.leg.br>'
       STATIC_URL: '/pautaparticipativa/static/'
+    env_file:
+      - ./.env
 
   discourse:
     image: labhackercd/discourse-docker:2.0.20180703
@@ -316,6 +331,7 @@ services:
       - db
       - redis
     environment:
+      BASE_URL_EDEMOCRACIA: /pjb/participe/
       ADMIN_EMAIL: 'admin@admin.com'
       ADMIN_PASSWORD: '123'
       ADMIN_USERNAME: 'admin'
@@ -340,3 +356,6 @@ services:
       DISCOURSE_SSO_URL: 'http:\/\/127.0.0.1:8000'
       DISCOURSE_SSO_SECRET: 'sso_secret'
       DISCOURSE_FORCE_HOSTNAME: ''
+    env_file:
+      - ./.env
+

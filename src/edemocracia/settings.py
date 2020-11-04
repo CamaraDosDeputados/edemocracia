@@ -358,3 +358,5 @@ BASE_URL_WIKILEGIS = config('BASE_URL_WIKILEGIS', default='/wikilegis/')
 BASE_URL_PAUTAS = config('BASE_URL_PAUTAS', default='/pautaparticipativa/')
 BASE_URL_AUDIENCIAS = config('BASE_URL_AUDIENCIAS', default='/audiencias/')
 BASE_URL_DISCOURSE = config('BASE_URL_DISCOURSE', default='/expressao/')
+
+SESSION_COOKIE_SAMESITE = None
