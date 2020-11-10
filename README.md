@@ -11,6 +11,7 @@ cd src/templates/edem-navigation
 git submodule init
 git submodule update --remote
 ```
+Crie um arquivo .env na raiz do repositório
 
 Em seguida, na raiz do repositório:
 
