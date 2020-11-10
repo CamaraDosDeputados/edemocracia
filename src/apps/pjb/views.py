@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from apps.pjb.models import DeputadoPjb, ProjetoPjb
+from apps.pjb.models import DeputadoPjb, ProjetoPjb, ComissaoPjb
 from django.shortcuts import get_object_or_404
 
 
@@ -14,8 +14,15 @@ def deputado_detail_view(request, id):
         projeto = ProjetoPjb.objects.get(autor_id=id)
     except ProjetoPjb.DoesNotExist:
         projeto = None
+
+    try:
+        comissao = ComissaoPjb.objects.get(integrantes__id__in=[deputado.id])
+    except ComissaoPjb.DoesNotExist:
+        comissao = None
+    
     return render(request, 'deputados-detail.html', {"deputado": deputado,
-                                                     "projeto": projeto})
+                                                     "projeto": projeto,
+                                                     "comissao": comissao})
 
 
 def projeto_list_view(request):

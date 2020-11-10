@@ -5,7 +5,7 @@
   <section class="section section--deputado">
       <div class="e-row e-expanded">
           <div class="section__info section__block e-columns small-12 large-3">
-              <img class="section__logo" src="{% static 'img/Marca_Jovens_Deputados_COR.png' %}">
+              <a href="{% url 'deputado-list'%}"><img class="section__logo" src="{% static 'img/Marca_Jovens_Deputados_COR.png' %}"></a>
               <p class="section__text">
                   Conheça os parlamentares selecionados para a edição 2020
               </p>
@@ -14,17 +14,20 @@
           <div class="section__block e-columns small-12 large-9">
               <div class="section__alternative-content">
   
-                <h1 class="section__title">Deputado(a) jovem {{deputado.nome}}</h1>
+                <h1 class="section__title">Deputado(a) Jovem </br>{{deputado.nome}}</h1>
                 <br>
                 {% if deputado.foto %}
                 <img class="pjb-card" src="{{deputado.foto.url}}"/>
                 {% endif %}
                 <br>
                 <h5><b>{{deputado.nome}}, {{deputado.idade}} anos</b></h5>
-                <h5>{{deputado.serie}} do Ensino Médio integrado ao {{deputado.escola}} - {{deputado.uf}}</h5>
+                <h5>{{deputado.serie}} </br> {{deputado.escola}} - {{deputado.uf}}</h5>
                 <h5><b>Minibio: </b>{{deputado.minibio}}</h5>
                 {% if projeto %}
-                    <a href="{% url 'projeto-detail' id=projeto.id %}"><h5><b>Proposta de lei {{projeto.numero}}/{{projeto.ano}}</b></h5></a>
+                    <a href="{% url 'projeto-detail' id=projeto.id %}"><h5><b>Proposta Legislativa PJB </br>PEC {{projeto.numero}}/{{projeto.ano}}</b></h5></a>
+                {% endif %}
+                {% if comissao %}
+                    <h5><b>{{comissao.nome}}</b></h5>
                 {% endif %}
                 
   
