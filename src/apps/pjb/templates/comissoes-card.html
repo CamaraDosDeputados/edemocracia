@@ -1,0 +1,14 @@
+{% load edem_extras %}
+
+<a class="info-card__link" href="{% url 'comissao-detail' id=comissao.id %}">
+  <li class="info-card info-card--jovens-deputados">
+    <div class="info-card__header">
+      <h2 class="info-card__title-center">{{ comissao.nome }}</h2>
+    </div>
+    <div class="info-card__text">
+      <div><b>Presidente:</b> {{ comissao.presidente.nome }}</div>
+      <br>
+      <div><b>Vice:</b> {{ comissao.vice_presidente.nome }}</div>
+    </div>
+  </li>
+</a>

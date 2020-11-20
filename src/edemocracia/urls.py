@@ -5,7 +5,8 @@ from django.conf.urls.static import static
 from apps.accounts.api import api_root, UserListAPI
 from apps.core.views import index
 from apps.pjb.views import deputado_list_view, deputado_detail_view, \
-     projeto_list_view, projeto_detail_view
+     projeto_list_view, projeto_detail_view, comissao_detail_view, \
+     comissao_list_view
 
 base_url_edemocracia = settings.BASE_URL_EDEMOCRACIA.lstrip('/')
 
@@ -19,6 +20,10 @@ urlpatterns = [
          projeto_list_view, name='projeto-list'),
     path(base_url_edemocracia + 'projeto/<int:id>/detail',
          projeto_detail_view, name='projeto-detail'),
+    path(base_url_edemocracia + 'comissao/<int:id>/detail',
+         comissao_detail_view, name='comissao-detail'),
+    path(base_url_edemocracia + 'comissao/list',
+         comissao_list_view, name='comissao-list'),
     path(base_url_edemocracia + 'admin/', admin.site.urls),
     path(base_url_edemocracia + 'accounts/', include('apps.accounts.urls')),
     path(base_url_edemocracia + 'sobre/', include('apps.about.urls')),

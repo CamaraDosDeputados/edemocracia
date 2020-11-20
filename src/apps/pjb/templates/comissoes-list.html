@@ -1,0 +1,39 @@
+{% extends 'base-pjb.html' %}
+{% load static %}
+{% block inner_content %}
+  <section class="section section--deputado">
+      <div class="e-row e-expanded">
+          <div class="section__info section__block e-columns small-12 large-3">
+              <img class="section__logo" src="{% static 'img/Marca_Jovens_Deputados_COR.png' %}">
+              <p class="section__text">
+                  Comissões Temáticas 2020
+              </p>
+          </div>
+  
+          <div class="section__block e-columns small-12 large-9">
+              <div class="section__content">
+  
+                  <h1 class="section__title">COMISSÕES TEMÁTICAS</h1>
+                  <div class="container container--card-list">
+                      <ul class="card-list card-list--wrapped">
+                {% for comissao in comissoes %}
+                    {% include "comissoes-card.html" %}
+                {% empty %}
+                <li>
+                    <div class="section__content-wrapper section__content-wrapper--center text-center">
+                        <p class="section__text">
+                            Aguarde, em breve as comissões temáticas estarão aqui!
+                        </p>
+                    </div>
+                </li>
+            {% endfor %}
+    
+            </ul>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+{% endblock inner_content %}

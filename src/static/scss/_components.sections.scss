@@ -67,6 +67,11 @@
   &__link {
     @include transition-default(color);
   }
+  &__link-bold {
+    @include transition-default(color);
+    font-weight: 700;
+    color:#1b9894;
+  }
 
   &__button {
     align-self: flex-end;
