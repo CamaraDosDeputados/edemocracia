@@ -45,7 +45,8 @@ def comissao_list_view(request):
 
 def comissao_detail_view(request, id):
     comissao = get_object_or_404(ComissaoPjb, pk=id)
-    propostas = ProjetoPjb.objects.filter(comissoes__pk=comissao.pk)
+    integrantes = comissao.integrantes.all()
+    projetos = ProjetoPjb.objects.filter(autor__in=integrantes)
     return render(request, 'comissoes-detail.html',
                   {"comissao": comissao,
-                   "propostas": propostas})
+                   "propostas": projetos})
