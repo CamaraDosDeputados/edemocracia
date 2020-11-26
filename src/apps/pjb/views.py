@@ -19,7 +19,7 @@ def deputado_detail_view(request, id):
         comissao = ComissaoPjb.objects.get(integrantes__id__in=[deputado.id])
     except ComissaoPjb.DoesNotExist:
         comissao = None
-    
+
     return render(request, 'deputados-detail.html', {"deputado": deputado,
                                                      "projeto": projeto,
                                                      "comissao": comissao})
@@ -36,3 +36,16 @@ def projeto_list_view(request):
 def projeto_detail_view(request, id):
     projeto = get_object_or_404(ProjetoPjb, pk=id)
     return render(request, 'projetos-detail.html', {"projeto": projeto})
+
+
+def comissao_list_view(request):
+    comissoes = ComissaoPjb.objects.all()
+    return render(request, 'comissoes-list.html', {"comissoes": comissoes})
+
+
+def comissao_detail_view(request, id):
+    comissao = get_object_or_404(ComissaoPjb, pk=id)
+    propostas = ProjetoPjb.objects.filter(comissoes__pk=comissao.pk)
+    return render(request, 'comissoes-detail.html',
+                  {"comissao": comissao,
+                   "propostas": propostas})
