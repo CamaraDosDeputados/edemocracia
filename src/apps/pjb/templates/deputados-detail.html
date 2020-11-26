@@ -30,10 +30,12 @@
                     <a href="{% url 'projeto-detail' id=projeto.id %}"><h5><b>Proposta Legislativa PJB </br>{{projeto.sigla_tipo}} {{projeto.numero}}/{{projeto.ano}}</b></h5></a>
                 {% endif %}
                 {% if comissao %}
-                    <h5><b>{{comissao.nome}}</b></h5>
+                    <a href="{% url 'comissao-detail' id=comissao.id %}">
+                        <h5><b>{{comissao.nome}}</b></h5>
+                    </a>
                 {% endif %}
                 
-  
+                
               </div>
           </div>
   
