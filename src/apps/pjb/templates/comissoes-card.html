@@ -1,14 +1,30 @@
 {% load edem_extras %}
+{% load staticfiles %} 
 
 <a class="info-card__link" href="{% url 'comissao-detail' id=comissao.id %}">
   <li class="info-card info-card--jovens-deputados">
     <div class="info-card__header">
       <h2 class="info-card__title-center">{{ comissao.nome }}</h2>
     </div>
-    <!--div class="info-card__text">
-      <div><b>Presidente:</b> {{ comissao.presidente.nome }}</div>
-      <br>
-      <div><b>Vice:</b> {{ comissao.vice_presidente.nome }}</div>
-    </div-->
+    <div class="info-card__text">
+      {% ifequal comissao.nome "Comissão de Agricultura e Meio Ambiente" %}
+        <img class="pjb-image" src="{% static 'img/Logo_agricultura-e-mMeio-ambiente.png' %}"/>
+      {% endifequal %}
+      {% ifequal comissao.nome "Comissão de Cultura, Cidadania, Esporte e Turismo" %}
+        <img class="pjb-image" src="{% static 'img/Logo_cultura-cidadania-esporte-e-turismo.png' %}"/>
+      {% endifequal %}
+      {% ifequal comissao.nome "Comissão de Direitos Humanos e Minorias" %}
+        <img class="pjb-image" src="{% static 'img/Logo_direitos-humanos-e-minoriasr.png' %}"/>
+      {% endifequal %}
+      {% ifequal comissao.nome "Comissão de Educação" %}
+        <img class="pjb-image" src="{% static 'img/Logo_educacao.png' %}"/>
+      {% endifequal %}
+      {% ifequal comissao.nome "Comissão de Saúde e Segurança Pública" %}
+        <img class="pjb-image" src="{% static 'img/Logo_saude-e-seguranca-publica.png' %}"/>
+      {% endifequal %}
+      {% ifequal comissao.nome "Comissão de Economia, Emprego e Defesa do Consumidor" %}
+        <img class="pjb-image" src="{% static 'img/Logo_economia-emprego-e-defesa.png' %}"/>
+      {% endifequal %}
+    </div>
   </li>
 </a>
