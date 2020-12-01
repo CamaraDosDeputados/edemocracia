@@ -203,26 +203,26 @@
 }
 
 .section--pauta {
-  background-color: #51AA31;
+  background-color: #F9D64D;
 
   
   & .section__title {
     &::before {
-      background-color: #083C31;
+      background-color: #F9D64D;
     }
   }
   
   & .section__info {
-    background-color: #98E26D;
+    background-color: #F1BC40;
   }
 
   & .section__button {
-    background-image: linear-gradient(#083C31, #083C31);
-    color: #083C31;
+    background-image: linear-gradient(#E67E4E, #E67E4E);
+    color: #E67E4E;
   }
 
   & .section__link {
-    color: #083C31;
+    color: #E67E4E;
   }
 }
 
@@ -523,10 +523,10 @@
 .owner-section {
   display: flex;
   flex-direction: column;
-  min-height: 15rem;
+  //min-height: 15rem;
   @include breakpoint(large up) {
     flex-direction: row;
-    min-height: 22rem;
+    //min-height: 22rem;
   }
 
   > .firsthalf {
@@ -536,7 +536,7 @@
     justify-content: center;
     padding: 2rem 0;
     @include breakpoint(large up) {
-      flex: 0 0 60%;
+      flex: 0 0 100%;
       padding: 3rem 0;
     }
 

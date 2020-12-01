@@ -4,9 +4,9 @@
     <div class="e-row e-expanded">
 
       <div class="section__info section__block e-columns small-12 large-3">
-        <a href="{% url 'projeto-list' %}"><img class="section__logo" src="{% static 'img/Marca_Enquetes_COR.png' %}" ></a>
+        <a href="{% url 'escola-list' %}"><img class="section__logo" src="{% static 'img/Logo_Escolas e Camaras Mirins_1.png' %}" ></a>
         <p class="section__text">
-          Conheça as soluções sugeridas pelos deputados jovens 2020 para algumas das questões brasileiras. 
+          Conheça os educadores selecionados para 2020. 
         </p>
       </div>
 
@@ -14,23 +14,23 @@
         <div class="section__content">
 
           <h1 class="section__title">
-            <a class="section__link" href="{% url 'projeto-list' %}" title="PROPOSTAS LEGISLATIVAS DO PJB 2020">PROPOSTAS LEGISLATIVAS DO PJB 2020</a>
+            <a class="section__link" href="{% url 'escola-list' %}" title="CONHEÇA NOSSOS PARCEIROS">CONHEÇA NOSSOS PARCEIROS</a>
           </h1>
 
           <div class="container container--card-list">
 
-            <a class="section__button" href="{% url 'projeto-list' %}">
+            <a class="section__button" href="{% url 'escola-list' %}">
               Ver mais >>
             </a>
 
             <ul class="card-list">
-                {% for projeto in projetos %}
-                    {% include "projetos-card.html" %}
+                {% for escola in escolas %}
+                    {% include "escolas-card.html" %}
                 {% empty %}
                 <li>
                     <div class="section__content-wrapper section__content-wrapper--center text-center">
                         <p class="section__text">
-                            Aguarde, em breve os projetos dos deputados jovens estarão aqui!
+                            Aguarde, em breve as escolas estarão aqui!
                         </p>
                     </div>
                 </li>

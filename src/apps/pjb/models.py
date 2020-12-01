@@ -84,3 +84,18 @@ class ProjetoPjb(models.Model):
     class Meta:
         verbose_name = 'projeto PJB'
         verbose_name_plural = 'projetos PJB'
+
+
+class Escola(models.Model):
+    educador = models.CharField(max_length=300)
+    nome_da_instituicao = models.CharField(max_length=300)
+    endereco = models.CharField(max_length=300)
+    logo = models.ImageField(upload_to="escola_foto/", null=True,
+                             blank=True)
+
+    def __str__(self):
+        return self.nome_da_instituicao
+
+    class Meta:
+        verbose_name = 'escola'
+        verbose_name_plural = 'escolas'
