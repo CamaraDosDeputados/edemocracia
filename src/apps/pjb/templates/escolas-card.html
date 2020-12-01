@@ -1,0 +1,14 @@
+{% load edem_extras %}
+
+<a class="info-card__link" href="{% url 'escola-detail' id=escola.id %}">
+  <li class="info-card info-card--enquetes-legislativas">
+    <div class="info-card__header">
+      <h2 class="info-card__title"><b>{{ escola.nome_da_instituicao }}</b></h2>
+    </div>
+    <p class="info-card__text">
+      {% if escola.logo %}
+        <img class="pjb-image" src="{{ escola.logo.url }}"/>
+      {% endif %}
+    </p>
+  </li>
+</a>

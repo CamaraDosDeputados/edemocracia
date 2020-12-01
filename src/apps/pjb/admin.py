@@ -20,7 +20,4 @@ class ProjetoPjbAdmin(admin.ModelAdmin):
     list_display_links = ['epigrafe', ]
     ordering = ['edicao_pjb', 'numero']
 
-admin.site.register(EdicaoPjb, EdicaoPjbAdmin)
-admin.site.register(ComissaoPjb, ComissaoPjbAdmin)
-admin.site.register(DeputadoPjb, DeputadoPjbAdmin)
-admin.site.register(ProjetoPjb, ProjetoPjbAdmin)
+admin.site.register(Escola)

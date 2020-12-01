@@ -10,7 +10,7 @@ from apps.pautas.data import get_pautas_index_data
 from apps.audiencias.data import get_audiencias_index_data
 from apps.core.utils import get_user_data
 
-from apps.pjb.models import DeputadoPjb, ProjetoPjb
+from apps.pjb.models import DeputadoPjb, ProjetoPjb, Escola
 
 
 class EdemProxyView(DiazoProxyView):
@@ -45,12 +45,6 @@ def index(request):
         context['agenda_rooms'] = rooms['agenda_rooms']
         context['live_rooms'] = rooms['live_rooms']
 
-    def get_random_records(model, amount):
-        ids = model.objects.all().values_list('id', flat=True)
-        random_ids = random.sample(list(ids), min(len(ids), amount))
-        return model.objects.filter(id__in=random_ids)
-
-    context['deputados'] = get_random_records(DeputadoPjb, records_limit)
-    context['projetos'] = get_random_records(ProjetoPjb, records_limit)
+    context['escolas'] = Escola.objects.all()
 
     return render(request, 'index.html', context)

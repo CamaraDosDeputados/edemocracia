@@ -6,30 +6,20 @@
 <main class="main">
 
   <section class="owner-section">
-    <div class="firsthalf">
-      <div class="logo">
-        {% get_media_prefix as MEDIA_URL %}
-        <a href="{% url 'home' %}"><img class="image" src="{% static 'img/Logo_PJB_2020.png' %}" alt="Parlamento Jovem Brasileiro"></a>
-      </div>
-    </div>
-    <div class="secondhalf">
-      <p class="briefing">Bem-vindo à plataforma interativa do <span class="owner"><a href="https://www.camara.leg.br/pjb">Parlamento Jovem Brasileiro</a></span>. Aqui estão reunidas ferramentas legislativas que ampliam a interação entre seus participantes – e também permitem a participação da sociedade neste programa de Educação para Democracia realizado pela Câmara dos Deputados. Todas as propostas legislativas aqui apresentadas são de autoria de estudantes do Ensino Médio de selecionados para a edição 2020. 
-        <span class="owner"><a href="https://www.camara.leg.br/pjb">Entenda as ferramentas e saiba como participar da próxima seleção do PJB.</a></span>
-        </span></p>
-    </div>
+    {% get_media_prefix as MEDIA_URL %}
+    <a href="{% url 'home' %}"><img class="image" src="{% static 'img/Topo_Camara Mirim.png' %}" alt="Parlamento Jovem Brasileiro"></a>
   </section>
 
-  {% include 'deputados-section.html' %}
+  {% include 'escolas-section.html' %}
   
   {% if WIKILEGIS_ENABLED %}
     {% include 'wikilegis-section.html' %}
   {% endif %}
-
-  {% include 'projetos-section.html' %}
-  
+<!-- <div class="
   {% if DISCOURSE_ENABLED %}
-    {% include 'discourse-section.html' %}
+  {% include 'discourse-section.html' %}
   {% endif %}
+  "-->
 
 
 </main>

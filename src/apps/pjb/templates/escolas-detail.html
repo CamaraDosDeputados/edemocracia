@@ -1,0 +1,33 @@
+{% extends 'base-pjb.html' %}
+{% load static %}
+{% block inner_content %}
+
+  <section class="section section--pauta">
+    <div class="e-row e-expanded">
+        <div class="section__info section__block e-columns small-12 large-3">
+          <img class="section__logo" src="{% static 'img/Logo_Escolas e Camaras Mirins_1.png' %}" >
+          <p class="section__text">
+            Conheça os educadores selecionados para 2020. 
+          </p>
+        </div>
+  
+          <div class="section__block e-columns small-12 large-9">
+              <div class="section__alternative-content">
+  
+                <h1 class="section__title">{{escola.nome_da_instituicao}}</h1>
+                <br><br><br><br><br><br><br>
+                {% if escola.logo %}
+                  <img class="pjb-card" src="{{escola.logo.url}}"/>
+                {% endif %}
+
+                <h5><b>Educador:</b> {{escola.educador}}</h5>
+                <h5><b>Endereço:</b> {{escola.endereco}}</h5>
+                {% if escola.relator %}
+                <h5><b>Relator(a): </b><a class="white-link" href="{% url 'deputado-detail' id=escola.relator.id %}"> {{escola.relator.nome}}</a></h5>
+                {% endif %}
+              </div>
+          </div>
+  
+      </div>
+  </section>
+{% endblock inner_content %}
