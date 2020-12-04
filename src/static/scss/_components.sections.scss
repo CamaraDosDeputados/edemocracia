@@ -176,11 +176,11 @@
 }
 
 .section--wikilegis {
-  background-color: #144438;
+  background-color: #2F68C2;
   background-size: cover;
 
   & .section__info {
-    background-color: #2C5349;
+    background-color: #1E4B9F;
   }
   & .section__text {
     color: white;
@@ -188,17 +188,17 @@
 
   & .section__title {
     &::before {
-      background-color: white;
+      background-color: #2F68C2;
     }
   }
 
   & .section__link {
-    color: white;
+    color: #B5E281;
   }
 
   & .section__button {
-    background-image: linear-gradient(white, white);
-    color: white;
+    background-image: linear-gradient(#B4E182, #B4E182);
+    color: #B4E182;
   }
 }
 
@@ -523,6 +523,7 @@
 .owner-section {
   display: flex;
   flex-direction: column;
+  background-color:#69BCD0;
   //min-height: 15rem;
   @include breakpoint(large up) {
     flex-direction: row;

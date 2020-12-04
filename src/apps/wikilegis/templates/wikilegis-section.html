@@ -6,7 +6,7 @@
       <div class="section__info section__block e-columns small-12 large-3">
         <a href="{{ BASE_URL_WIKILEGIS }}"><img class="section__logo" src="{% static 'img/logo-wikilegis.svg' %}" ></a>
         <p class="section__text">
-          Faça acréscimos, retire partes ou proponha mudanças nos projetos de lei apresentados pelos deputados jovens
+          Conheça os Projetos de lei Selecionados para 2020
         </p>
       </div>
 
@@ -14,14 +14,11 @@
         <div class="section__content">
 
           <h1 class="section__title">
-            <a class="section__link" href="{{ BASE_URL_WIKILEGIS }}" title="Contribua com as propostas do PJB">CONTRIBUA COM AS PROPOSTAS DO PJB</a>
+            <span class="section__link" href="{{ BASE_URL_WIKILEGIS }}" title="PROPOSTAS DO CAMARA MIRIM 2020">PROPOSTAS DO CAMARA MIRIM 2020</span>
           </h1>
 
           <div class="container container--card-list">
 
-            <a class="section__button" href="{{ BASE_URL_WIKILEGIS }}">
-              Ver mais >>
-            </a>
 
             <ul class="card-list">    
               {% for bill in bills %}
