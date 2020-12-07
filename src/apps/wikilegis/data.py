@@ -1,6 +1,5 @@
 from django.conf import settings
 import requests
-import random
 
 
 def get_wikilegis_index_data(limit):
@@ -8,6 +7,5 @@ def get_wikilegis_index_data(limit):
     params = {'limit': '100'}
     response = requests.get(url, params=params)
     bills = response.json()['objects']
-    randomly_selected_bills = random.sample(bills, min(len(bills),limit))
-
-    return randomly_selected_bills
+    print(bills)
+    return bills
