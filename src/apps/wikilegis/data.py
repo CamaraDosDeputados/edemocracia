@@ -8,6 +8,6 @@ def get_wikilegis_index_data(limit):
     params = {'limit': '100'}
     response = requests.get(url, params=params)
     bills = response.json()['objects']
-    randomly_selected_bills = random.sample(bills, limit)
+    randomly_selected_bills = random.sample(bills, min(len(bills),limit))
 
     return randomly_selected_bills

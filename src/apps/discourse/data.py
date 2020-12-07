@@ -20,7 +20,7 @@ def get_latest():
 def get_discourse_index_data(amount):
     categories = get_categories()
     latest = get_latest()
-    randomly_selected_latest = random.sample(latest, amount)
+    randomly_selected_latest = random.sample(latest, min(len(latest), amount))
 
     topics = []
     for topic in randomly_selected_latest:
