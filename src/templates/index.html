@@ -4,12 +4,18 @@
 {% block content %}
 
 <main class="main">
-
   <section class="owner-section">
-    {% get_media_prefix as MEDIA_URL %}
-    <a href="{% url 'home' %}"><img class="image" src="{% static 'img/Topo_Camara Mirim.png' %}" alt="Parlamento Jovem Brasileiro"></a>
+    <div class="firsthalf">
+      <div class="logo">
+        {% get_media_prefix as MEDIA_URL %}
+        <a href="{% url 'home' %}"><img class="image" src="{% static 'img/Logo_Camara Mirim-Vazada.png' %}" alt="Parlamento Jovem Brasileiro"></a>
+      </div>
+    </div>
+    <div class="secondhalf">
+      <p class="briefing">O Plenarinho convida você a conhecer a plataforma interativa do Câmara Mirim, o programa de educação para a democracia que simula a atividade legislativa com estudantes do ensino fundamental! Reunimos aqui diversas ferramentas que ampliam a interação entre os deputados mirins e a participação da sociedade no programa. Vale reforçar que todas as propostas legislativas discutidas aqui são de autoria de estudantes. </a></span>
+        </p>
+    </div>
   </section>
-
   {% include 'escolas-section.html' %}
   
   {% if WIKILEGIS_ENABLED %}
