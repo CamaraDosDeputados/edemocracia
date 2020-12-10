@@ -1,12 +1,23 @@
-<svg style="isolation:isolate" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 480 80">
-  <defs>
-    <clipPath id="a">
-      <rect width="480" height="80"/>
-    </clipPath>
-  </defs>
-  <g fill-rule="evenodd" clip-path="url(#a)">
-    <path fill="#ec3" d="m480 48c-92.9-72.5-347.1-52.55-480-8v40h480v-32z"/>
-    <path fill="#396" d="m480 32c-150-36.24-347.4-4.58-480 40v8h480v-48z"/>
-    <path fill="#022" d="m423.5 32.86c-151.7-14.87-305.4 6.44-423.5 46.14v1h480v-40q-38-5.33-56.5-7.14z"/>
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.3.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Camada_3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 480 80" style="enable-background:new 0 0 480 80;" xml:space="preserve">
+<style type="text/css">
+	.st0{clip-path:url(#SVGID_2_);fill-rule:evenodd;clip-rule:evenodd;fill:#1FA1B4;}
+	.st1{clip-path:url(#SVGID_2_);fill-rule:evenodd;clip-rule:evenodd;fill:#5E99D2;}
+	.st2{clip-path:url(#SVGID_2_);fill-rule:evenodd;clip-rule:evenodd;fill:#49BDD2;}
+</style>
+<g>
+	<g>
+		<defs>
+			<rect id="SVGID_1_" x="0" y="0" width="480" height="80"/>
+		</defs>
+		<clipPath id="SVGID_2_">
+			<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+		</clipPath>
+		<path class="st0" d="M480,48C387.1-24.5,132.9-4.5,0,40l0,40h480V48z"/>
+		<path class="st1" d="M480,32C330-4.2,132.6,27.4,0,72l0,8h480V32z"/>
+		<path class="st2" d="M423.5,32.9C271.8,18,118.1,39.3,0,79l0,1h480V40C454.7,36.4,435.8,34.1,423.5,32.9z"/>
+	</g>
+</g>
 </svg>

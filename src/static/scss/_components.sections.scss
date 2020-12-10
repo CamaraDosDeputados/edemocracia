@@ -282,7 +282,7 @@
 
 
 .section--audiencias{
-  background-color: #36B7AB;
+  background-color: #2F68C2;
 
   & .section__info{
     background-color: #42C5BA;
@@ -531,7 +531,7 @@
   }
 
   > .firsthalf {
-    background-color:#36B7AB;
+    background-color:#2F68C2;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -545,14 +545,15 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 18rem;
+      width: 26rem;
       height: 12rem;
-      margin: 0 2rem;
-      margin-bottom: 60px;
+      margin-bottom: 1px;
+      position: relative;
+      z-index: 100;
       @include breakpoint(large up) {
-        margin-right: 118px;
+        margin-right: 60px;
         margin-bottom: 0;
-        width: 24rem;
+        width: 33rem;
         height: 16rem;
       }
 
@@ -573,7 +574,7 @@
     justify-content: center;
     padding: 2rem 0;
     align-items: center;
-    background-color: #002222;
+    background-color: #46bed3;
 
     @include breakpoint(large up) {
       flex: 0 0 40%;
@@ -608,7 +609,7 @@
 
     > .briefing {
       max-width: 40rem;
-      color: #fff;
+      color: #1E4B9F;
       font-size: 1.2rem;
       font-weight: 600;
       margin-bottom: 0;
