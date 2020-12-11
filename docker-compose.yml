@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 
 volumes:
   pg_data:
@@ -44,8 +44,6 @@ services:
       PGDATA : /var/lib/postgresql/data/
     volumes:
      - pg_data:/var/lib/postgresql/data/
-    ports:
-     - "5432:5432"
 
   redis:
     image: redis:alpine
