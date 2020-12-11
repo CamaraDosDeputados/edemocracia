@@ -1,5 +1,8 @@
 FROM labhackercd/alpine-python3-nodejs
 
+ARG http_proxy
+ARG https_proxy
+
 ENV BUILD_PACKAGES python3 python3-dev linux-headers curl curl-dev \
     git ca-certificates gcc postgresql-dev build-base bash \
     postgresql-client gettext libxml2-dev libxslt-dev zlib-dev jpeg-dev \
