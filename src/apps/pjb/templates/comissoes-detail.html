@@ -35,7 +35,7 @@
                 <h3><b>Propostas Legislativas PJB:</b></h3>
                 {% for proposta in propostas %}
                     <a href="{% url 'projeto-detail' id=proposta.id %}">
-                        <h5><b>{{ proposta.sigla_tipo }} {{ proposta.numero }}/{{ proposta.ano }}</b></h5>
+                        <h5><b>{{ proposta.sigla_tipo }} {{ proposta.numero }}/{{ proposta.ano }}/{{ proposta.tema }}</b></h5>
                     </a>
                 {% endfor %}
               </div>

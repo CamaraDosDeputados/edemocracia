@@ -7,6 +7,9 @@
       <h2 class="info-card__title">{{topic.title}}</h2>
     </div>
     <p class="info-card__text">
+      {% if topic.foto %}
+        <img class="discourse-card-image" src="{{ topic.foto.url }}"/>
+      {% endif %}
     </p>
     <div class="info-card__footer">
       <div class="card-stats">
