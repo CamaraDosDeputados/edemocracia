@@ -51,7 +51,7 @@ def comissao_detail_view(request, id):
     projetos = ProjetoPjb.objects.filter(autor__in=integrantes).values()
     for bill in bills:
         tema = bill.get('theme').get('description')
-        numero = bill['epigraph'].split('/')[0][-4:]
+        numero = bill['epigraph'].split('/')[0][-3:]
         for projeto in projetos:
             try:
                 n_projeto = int(projeto.get('numero'))
