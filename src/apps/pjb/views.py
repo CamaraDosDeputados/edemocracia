@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from apps.pjb.models import DeputadoPjb, ProjetoPjb, ComissaoPjb
 from django.shortcuts import get_object_or_404
+from apps.wikilegis.data import get_wikilegis_index_data_no_randomness
 
 
 def deputado_list_view(request):
@@ -44,9 +45,23 @@ def comissao_list_view(request):
 
 
 def comissao_detail_view(request, id):
+    bills = get_wikilegis_index_data_no_randomness(200)
     comissao = get_object_or_404(ComissaoPjb, pk=id)
     integrantes = comissao.integrantes.all()
-    projetos = ProjetoPjb.objects.filter(autor__in=integrantes)
+    projetos = ProjetoPjb.objects.filter(autor__in=integrantes).values()
+    for bill in bills:
+        tema = bill.get('theme').get('description')
+        numero = bill['epigraph'].split('/')[0][-4:]
+        for projeto in projetos:
+            try:
+                n_projeto = int(projeto.get('numero'))
+                numero = int(numero)
+                if n_projeto == numero:
+                    projeto['tema'] = tema
+                    break
+            except:
+                pass
+
     return render(request, 'comissoes-detail.html',
                   {"comissao": comissao,
                    "propostas": projetos})
