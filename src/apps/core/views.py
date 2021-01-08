@@ -39,16 +39,11 @@ def index(request):
         def include_pictures_in_discourse(topics):
             for topic in topics:
                 full_name = str(topic['title']).split('-')[0].split(' ')
-                last_name = full_name[len(full_name)-1]
-                query = DeputadoPjb.objects.filter(nome__icontains=last_name)
-                if len(query) > 1:
-                    first_name = full_name[0]
-                    query = DeputadoPjb.objects.filter(nome__icontains=first_name)
-                if len(query) > 0:
-                    try:
-                        topic['foto'] = query[0].foto
-                    except:
-                        pass
+                query = DeputadoPjb.objects.filter(nome__icontains=full_name).first()
+                try:
+                    topic['foto'] = query[0].foto
+                except:
+                    pass
         context['topics'] = get_discourse_index_data(records_limit)
         include_pictures_in_discourse(context['topics'])
 
