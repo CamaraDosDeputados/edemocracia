@@ -38,7 +38,8 @@ def index(request):
     if settings.DISCOURSE_ENABLED:
         def include_pictures_in_discourse(topics):
             for topic in topics:
-                full_name = str(topic['title']).split('-')[0].split(' ')
+                full_name_list = str(topic['title']).split('-')[0].split(' ')
+                full_name = ' '.join(full_name_list)
                 query = DeputadoPjb.objects.filter(nome__icontains=full_name).first()
                 try:
                     topic['foto'] = query[0].foto
