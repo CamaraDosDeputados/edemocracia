@@ -16,14 +16,11 @@ def deputado_detail_view(request, id):
     except ProjetoPjb.DoesNotExist:
         projeto = None
 
-    try:
-        comissao = ComissaoPjb.objects.get(integrantes__id__in=[deputado.id])
-    except ComissaoPjb.DoesNotExist:
-        comissao = None
+    comissoes = ComissaoPjb.objects.filter(integrantes__id__in=[deputado.id])
 
     return render(request, 'deputados-detail.html', {"deputado": deputado,
                                                      "projeto": projeto,
-                                                     "comissao": comissao})
+                                                     "comissoes": comissoes})
 
 
 def projeto_list_view(request):
