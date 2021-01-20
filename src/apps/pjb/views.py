@@ -46,7 +46,8 @@ def comissao_detail_view(request, id):
     bills = get_wikilegis_index_data_no_randomness(200)
     comissao = get_object_or_404(ComissaoPjb, pk=id)
     integrantes = comissao.integrantes.all().order_by('nome')
-    projetos = ProjetoPjb.objects.filter(autor__in=integrantes).values().order_by('numero')
+    projetos = ProjetoPjb.objects.filter(autor__in=integrantes).extra(
+        select={'numerointeger': 'CAST(numero AS INTEGER)'}).order_by('numerointeger').values()
     for bill in bills:
         tema = bill.get('description')
         numero = bill['epigraph'].split('/')[0][-3:]
