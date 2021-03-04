@@ -300,20 +300,21 @@
   & .info-card__header {
     justify-content: flex-start;
     height: 3rem;
-    padding: 0.5rem 1rem;
+    padding: 0.3rem 1rem;
     margin-bottom: 1rem;
     color: white;
+    background-color: #51AA31;
 
     &--live {
-      background-color: #1d694f;
+      background-color:  #51AA31;
     }
 
     &--old-video {
-      background-color: #11496c;
+      background-color:  #51AA31;
     }
 
     &--calendar {
-      background-color: #092b2a;
+      background-color:  #51AA31;
     }
   }
 
