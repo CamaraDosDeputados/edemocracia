@@ -296,7 +296,10 @@
 }
 
 .info-card--audiencias{
-
+  max-width: 320px;
+  > img {
+    padding: 0 15px 0 15px;
+  }
   & .info-card__header {
     justify-content: flex-start;
     height: 3rem;
