@@ -1,10 +1,11 @@
 import random
+import re
 from django.conf import settings
 from revproxy.views import DiazoProxyView
 from django.shortcuts import render
 import json
 
-from apps.discourse.data import get_discourse_index_data
+from apps.discourse.data import get_discourse_index_data, get_posts
 from apps.wikilegis.data import get_wikilegis_index_data
 from apps.pautas.data import get_pautas_index_data
 from apps.audiencias.data import get_audiencias_index_data
@@ -36,21 +37,40 @@ def index(request):
         context['bills'] = get_wikilegis_index_data(records_limit)
 
     if settings.DISCOURSE_ENABLED:
+        def get_portrait(topic):
+            full_name = str(topic['title']).split('-')[0].split(' ')
+            full_name = [x for x in full_name if x != '']
+            last_name = full_name[len(full_name)-1]
+            query = DeputadoPjb.objects.filter(nome__icontains=last_name)
+            if len(query) > 1:
+                first_name = full_name[0]
+                query = DeputadoPjb.objects.filter(nome__icontains=first_name)
+            if len(query) > 0:
+                try:
+                    topic['foto'] = query[0].foto
+                except:
+                    pass
+
+        def get_thumbnail(topic):
+            id = topic['id']
+            posts = get_posts(id)
+            for post in posts:
+                text = post['cooked']
+                m = re.search('<iframe.*\"http[s]:\/\/www\.youtube\.com\/embed\/(.*?)\".*?>', text)
+
+                if m:
+                    video_id = m.group(1)
+                    url = f'https://img.youtube.com/vi/{video_id}/mqdefault.jpg'
+                    return url
+                return None
+
         def include_pictures_in_discourse(topics):
             for topic in topics:
-                full_name = str(topic['title']).split('-')[0].split(' ')
-                full_name = [x for x in full_name if x != '']
-                last_name = full_name[len(full_name)-1]
-                query = DeputadoPjb.objects.filter(nome__icontains=last_name)
-                if len(query) > 1:
-                    first_name = full_name[0]
-                    query = DeputadoPjb.objects.filter(nome__icontains=first_name)
-                if len(query) > 0:
-                    try:
-                        topic['foto'] = query[0].foto
-                    except:
-                        pass
+                topic['foto'] = get_thumbnail(topic)
+                # get_portrait(topic)
+
         context['topics'] = get_discourse_index_data(records_limit)
+
         include_pictures_in_discourse(context['topics'])
 
     if settings.AUDIENCIAS_ENABLED:
