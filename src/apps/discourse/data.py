@@ -16,12 +16,16 @@ def get_latest():
     latest = latest['topic_list']['topics']
     return latest
 
-
+def get_posts(id):
+    latest_url = settings.DISCOURSE_UPSTREAM + f'/t/{id}/posts.json'
+    latest = requests.get(latest_url).json()
+    latest = latest['post_stream']['posts']
+    return latest
+    
 def get_discourse_index_data(amount):
     categories = get_categories()
     latest = get_latest()
     randomly_selected_latest = random.sample(latest, amount)
-
     topics = []
     for topic in randomly_selected_latest:
         topic_category = None
