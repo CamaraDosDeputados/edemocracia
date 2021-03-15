@@ -69,8 +69,9 @@ def index(request):
                 topic['foto'] = get_thumbnail(topic)
                 # get_portrait(topic)
 
-        context['topics'] = get_discourse_index_data(records_limit)
-
+        id_list = ['154', '155']
+        topics = get_discourse_index_data(id_list)
+        context['topics'] = topics
         include_pictures_in_discourse(context['topics'])
 
     if settings.AUDIENCIAS_ENABLED:
