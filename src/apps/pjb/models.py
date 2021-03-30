@@ -32,6 +32,43 @@ class ComissaoPjb(models.Model):
         verbose_name = 'comissão PJB'
         verbose_name_plural = 'comissões PJB'
 
+class MesaDiretoraPjb(models.Model):
+    edicao_pjb = models.ForeignKey(EdicaoPjb, on_delete=models.CASCADE)
+    presidente = models.ForeignKey('DeputadoPjb', null=True, blank=True,
+                                   related_name='presidente',
+                                   on_delete=models.CASCADE)
+    vice_presidente = models.ForeignKey('DeputadoPjb', null=True, blank=True,
+                                        related_name='vice_presidente',
+                                        on_delete=models.CASCADE)
+    primeiro_secretario = models.ForeignKey('DeputadoPjb', null=True, blank=True,
+                                        related_name='primeiro_secretario',
+                                        on_delete=models.CASCADE)
+    segundo_secretario = models.ForeignKey('DeputadoPjb', null=True, blank=True,
+                                        related_name='segundo_secretario',
+                                        on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = 'mesa diretora PJB'
+        verbose_name_plural = 'mesas diretoras PJB'
+
+class PartidoPjb(models.Model):
+    edicao_pjb = models.ForeignKey(EdicaoPjb, on_delete=models.CASCADE)
+    nome = models.TextField(null=True, blank=True)
+    sigla = models.TextField(null=True, blank=True)
+    lider = models.ForeignKey('DeputadoPjb', null=True, blank=True,
+                                   related_name='lider',
+                                   on_delete=models.CASCADE)
+    vice_lider = models.ForeignKey('DeputadoPjb', null=True, blank=True,
+                                        related_name='vice_lider',
+                                        on_delete=models.CASCADE)
+    integrantes = models.ManyToManyField('DeputadoPjb', blank=True)
+
+    def __str__(self):
+        return self.nome
+
+    class Meta:
+        verbose_name = 'partido PJB'
+        verbose_name_plural = 'partidos PJB'
 
 class DeputadoPjb(models.Model):
     edicao_pjb = models.ForeignKey(EdicaoPjb, on_delete=models.CASCADE)
@@ -60,6 +97,15 @@ class DeputadoPjb(models.Model):
 
 
 class ProjetoPjb(models.Model):
+    class StatusProjeto(models.TextChoices):
+        AAC = 'AAC', 'Aguardando apreciação na comissão'
+        APC = 'APC', 'Aprovado em caráter conclusivo na comissão'
+        RJ = 'RJ', 'Rejeitado'
+        EPF = 'EPF', 'Encaminhado para plenária final'
+        APF = 'APF', 'Aprovado na plenária final'
+        ADS = 'ADS', 'Aguardando designação de status'
+
+
     edicao_pjb = models.ForeignKey(EdicaoPjb, on_delete=models.CASCADE)
     sigla_tipo = models.CharField(max_length=3)
     numero = models.CharField(max_length=4)
@@ -74,6 +120,13 @@ class ProjetoPjb(models.Model):
                                 on_delete=models.CASCADE)
     texto_original = models.FileField(upload_to="projeto_pjb/", null=True,
                                       blank=True)
+    parecer = models.FileField(upload_to="parecer/", null=True,
+                                      blank=True)
+    situacao = models.CharField(
+        max_length=3,
+        choices=StatusProjeto.choices,
+        default=StatusProjeto.ADS,
+    )
 
     def epigrafe(self):
         return str(self)
