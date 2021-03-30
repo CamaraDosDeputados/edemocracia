@@ -18,10 +18,10 @@ class ComissaoPjb(models.Model):
     nome = models.TextField(null=True, blank=True)
     sigla = models.TextField(null=True, blank=True)
     presidente = models.ForeignKey('DeputadoPjb', null=True, blank=True,
-                                   related_name='presidente',
+                                   related_name='%(class)s_presidente',
                                    on_delete=models.CASCADE)
     vice_presidente = models.ForeignKey('DeputadoPjb', null=True, blank=True,
-                                        related_name='vice_presidente',
+                                        related_name='%(class)s_vice_presidente',
                                         on_delete=models.CASCADE)
     integrantes = models.ManyToManyField('DeputadoPjb', blank=True)
 
@@ -35,16 +35,16 @@ class ComissaoPjb(models.Model):
 class MesaDiretoraPjb(models.Model):
     edicao_pjb = models.ForeignKey(EdicaoPjb, on_delete=models.CASCADE)
     presidente = models.ForeignKey('DeputadoPjb', null=True, blank=True,
-                                   related_name='presidente',
+                                   related_name='%(class)s_presidente',
                                    on_delete=models.CASCADE)
     vice_presidente = models.ForeignKey('DeputadoPjb', null=True, blank=True,
-                                        related_name='vice_presidente',
+                                        related_name='%(class)s_vice_presidente',
                                         on_delete=models.CASCADE)
     primeiro_secretario = models.ForeignKey('DeputadoPjb', null=True, blank=True,
-                                        related_name='primeiro_secretario',
+                                        related_name='%(class)s_primeiro_secretario',
                                         on_delete=models.CASCADE)
     segundo_secretario = models.ForeignKey('DeputadoPjb', null=True, blank=True,
-                                        related_name='segundo_secretario',
+                                        related_name='%(class)s_segundo_secretario',
                                         on_delete=models.CASCADE)
 
     class Meta:
@@ -56,10 +56,10 @@ class PartidoPjb(models.Model):
     nome = models.TextField(null=True, blank=True)
     sigla = models.TextField(null=True, blank=True)
     lider = models.ForeignKey('DeputadoPjb', null=True, blank=True,
-                                   related_name='lider',
+                                   related_name='%(class)s_lider',
                                    on_delete=models.CASCADE)
     vice_lider = models.ForeignKey('DeputadoPjb', null=True, blank=True,
-                                        related_name='vice_lider',
+                                        related_name='%(class)s_vice_lider',
                                         on_delete=models.CASCADE)
     integrantes = models.ManyToManyField('DeputadoPjb', blank=True)
 
