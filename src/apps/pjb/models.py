@@ -97,13 +97,14 @@ class DeputadoPjb(models.Model):
 
 
 class ProjetoPjb(models.Model):
-    class StatusProjeto(models.TextChoices):
-        AAC = 'AAC', 'Aguardando apreciação na comissão'
-        APC = 'APC', 'Aprovado em caráter conclusivo na comissão'
-        RJ = 'RJ', 'Rejeitado'
-        EPF = 'EPF', 'Encaminhado para plenária final'
-        APF = 'APF', 'Aprovado na plenária final'
-        ADS = 'ADS', 'Aguardando designação de status'
+    STATUS_PROJETO_CHOICES = [
+        ('AAC', 'Aguardando apreciação na comissão'),
+        ('APC', 'Aprovado em caráter conclusivo na comissão'),
+        ('RJ', 'Rejeitado'),
+        ('EPF', 'Encaminhado para plenária final'),
+        ('APF', 'Aprovado na plenária final'),
+        ('ADS', 'Aguardando designação de status'),
+    ]
 
 
     edicao_pjb = models.ForeignKey(EdicaoPjb, on_delete=models.CASCADE)
@@ -124,8 +125,8 @@ class ProjetoPjb(models.Model):
                                       blank=True)
     situacao = models.CharField(
         max_length=3,
-        choices=StatusProjeto.choices,
-        default=StatusProjeto.ADS,
+        choices=STATUS_PROJETO_CHOICES,
+        default='ADS',
     )
 
     def epigrafe(self):
