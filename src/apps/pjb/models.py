@@ -58,8 +58,17 @@ class PartidoPjb(models.Model):
     lider = models.ForeignKey('DeputadoPjb', null=True, blank=True,
                                    related_name='%(class)s_lider',
                                    on_delete=models.CASCADE)
-    vice_lider = models.ForeignKey('DeputadoPjb', null=True, blank=True,
-                                        related_name='%(class)s_vice_lider',
+    primeiro_vice_lider = models.ForeignKey('DeputadoPjb', null=True, blank=True,
+                                        related_name='%(class)s_primeiro_vice_lider',
+                                        on_delete=models.CASCADE)
+    segundo_vice_lider = models.ForeignKey('DeputadoPjb', null=True, blank=True,
+                                        related_name='%(class)s_segundo_vice_lider',
+                                        on_delete=models.CASCADE)
+    terceiro_vice_lider = models.ForeignKey('DeputadoPjb', null=True, blank=True,
+                                        related_name='%(class)s_terceiro_vice_lider',
+                                        on_delete=models.CASCADE)
+    quarto_vice_lider = models.ForeignKey('DeputadoPjb', null=True, blank=True,
+                                        related_name='%(class)s_quarto_vice_lider',
                                         on_delete=models.CASCADE)
     integrantes = models.ManyToManyField('DeputadoPjb', blank=True)
 
