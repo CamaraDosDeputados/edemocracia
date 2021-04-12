@@ -90,6 +90,13 @@ def comissao_list_view(request):
     return render(request, 'comissoes-list.html', {"comissoes": comissoes})
 
 
+def mesa_diretora_view(request):
+    mesa = MesaDiretoraPjb.objects.all()
+    mesa = mesa[0]
+    integrantes = [mesa.presidente, mesa.vice_presidente, mesa.primeiro_secretario, mesa.segundo_secretario]
+    return render(request, 'mesa-diretora.html', {"mesa": mesa, "integrantes": integrantes})
+
+
 def comissao_detail_view(request, id):
     bills = get_wikilegis_index_data_no_randomness(200)
     comissao = get_object_or_404(ComissaoPjb, pk=id)
