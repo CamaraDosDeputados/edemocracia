@@ -28,11 +28,19 @@
                 <h5>{{deputado.serie}} </br> {{deputado.escola}} - {{deputado.uf}}</h5>
                 <h5><b>Minibio: </b>{{deputado.minibio}}</h5>
                 {% if projeto %}
-                    <a href="{% url 'projeto-detail' id=projeto.id %}"><h5><b>Proposta Legislativa PJB </br>{{projeto.sigla_tipo}} {{projeto.numero}}/{{projeto.ano}}</b></h5></a>
+                    <a href="{% url 'projeto-detail' id=projeto.id %}"><h5><b>Proposta Legislativa PJB: {{projeto.sigla_tipo}} {{projeto.numero}}/{{projeto.ano}}</b></h5></a>
+                {% endif %}
+                {% if partido %}
+                    <a href=""><h5><b>{{partido.atribuicao}}</b></h5></a>
                 {% endif %}
                 {% for comissao in comissoes %}
-                    <a href="{% url 'comissao-detail' id=comissao.id %}">
-                        <h5><b>{{comissao.nome}}</b></h5>
+                    <a href="{% url 'comissao-detail' id=comissao.comissao.id %}">
+                        <h5><b>{{comissao.atribuicao}}</b></h5>
+                    </a>
+                {% endfor %}
+                {% for mesa in mesas %}
+                    <a href="">
+                        <h5><b>{{mesa.atribuicao}}</b></h5>
                     </a>
                 {% endfor %}
                 
