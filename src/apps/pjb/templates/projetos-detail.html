@@ -26,6 +26,17 @@
                 {% if projeto.relator %}
                 <h5><b>Relator(a): </b><a class="white-link" href="{% url 'deputado-detail' id=projeto.relator.id %}"> {{projeto.relator.nome}}</a></h5>
                 {% endif %}
+                {% if projeto.comissoes %}
+                  {% for comissao in projeto.comissoes.all %}
+                    <h5><b>Comissão: </b><a class="white-link" href="{% url 'comissao-detail' id=comissao.id %}">{{comissao.nome}}</a></h5>
+                  {% endfor %}
+                {% endif %}
+                {% if projeto.parecer %}
+                  <h5><a class="white-link" href="{{projeto.parecer.url}}">Parecer do projeto</a></h5>
+                {% endif %}
+                {% if projeto.situacao %}
+                  <h5><b>Situação do Projeto: </b>{{projeto.get_situacao_display}}</h5>
+                {% endif %}
               </div>
           </div>
   

@@ -72,6 +72,9 @@ class PartidoPjb(models.Model):
                                         on_delete=models.CASCADE)
     integrantes = models.ManyToManyField('DeputadoPjb', blank=True)
 
+    foto = models.ImageField(upload_to="partido_pjb_foto/", null=True,
+                             blank=True)
+
     def __str__(self):
         return self.nome
 

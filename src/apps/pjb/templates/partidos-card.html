@@ -1,0 +1,14 @@
+{% load edem_extras %}
+
+<a class="info-card__link" href="{% url 'partido-detail' id=partido.id %}">
+  <li class="info-card info-card--jovens-deputados">
+    <div class="info-card__header">
+      <h2 class="info-card__title-center">{{ partido.nome|title }}</h2>
+    </div>
+    <p class="info-card__text">
+        {% if partido.foto %}
+          <img class="pjb-image" src="{{ partido.foto.url }}"/>
+        {% endif %}
+    </p>
+  </li>
+</a>
