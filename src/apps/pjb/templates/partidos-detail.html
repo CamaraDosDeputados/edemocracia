@@ -1,0 +1,44 @@
+{% extends 'base-pjb.html' %}
+{% load static %}
+{% block inner_content %}
+
+  <section class="section section--deputado">
+      <div class="e-row e-expanded">
+          <div class="section__info section__block e-columns small-12 large-3">
+              <a href="{% url 'deputado-list'%}"><img class="section__logo" src="{% static 'img/Marca_Jovens_Deputados_COR.png' %}"></a>
+          </div>
+  
+          <div class="section__block e-columns small-12 large-9">
+              <div class="section__alternative-content">
+  
+                <h1 class="section__title">{{partido.nome}}</h1>
+                <br>
+                {% if partido.lider %}
+                  <h5><b>Líder: </b><a class="white-link" href="{% url 'deputado-detail' id=partido.lider.id %}"> {{partido.lider.nome}}</a></h5>
+                {% endif %}
+                {% if partido.primeiro_vice_lider %}
+                  <h5><b>Vice-líder: </b><a class="white-link" href="{% url 'deputado-detail' id=partido.primeiro_vice_lider.id %}"> {{partido.primeiro_vice_lider.nome}}</a></h5>
+                {% endif %}
+                {% if partido.segundo_vice_lider %}
+                  <h5><b>Vice-líder: </b><a class="white-link" href="{% url 'deputado-detail' id=partido.segundo_vice_lider.id %}"> {{partido.segundo_vice_lider.nome}}</a></h5>
+                {% endif %}
+                {% if partido.terceiro_vice_lider %}
+                  <h5><b>Vice-líder: </b><a class="white-link" href="{% url 'deputado-detail' id=partido.terceiro_vice_lider.id %}"> {{partido.terceiro_vice_lider.nome}}</a></h5>
+                {% endif %}
+                {% if partido.quarto_vice_lider %}
+                  <h5><b>Vice-líder: </b><a class="white-link" href="{% url 'deputado-detail' id=partido.quarto_vice_lider.id %}"> {{partido.quarto_vice_lider.nome}}</a></h5>
+                {% endif %}
+                <h3><b>Integrantes:</b></h3>
+                <div class="container container--card-list">
+                    <ul class="card-list card-list--wrapped">
+                        {% for deputado in partido.integrantes.all %}
+                            {% include "deputados-card.html" %}
+                        {% endfor %}
+                    </ul>
+                </div>
+              </div>
+          </div>
+  
+      </div>
+  </section>
+{% endblock inner_content %}

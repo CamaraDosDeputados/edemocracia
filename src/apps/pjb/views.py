@@ -80,6 +80,17 @@ def projeto_list_view(request):
     return render(request, 'projetos-list.html', {"projetos": projetos})
 
 
+def partido_detail_view(request, id):
+    partido = get_object_or_404(PartidoPjb, pk=id)
+    return render(request, 'partidos-detail.html', {"partido": partido})
+
+
+def partido_list_view(request):
+    partidos = PartidoPjb.objects.all().order_by('nome')
+
+    return render(request, 'partidos-list.html', {"partidos": partidos})
+
+
 def projeto_detail_view(request, id):
     projeto = get_object_or_404(ProjetoPjb, pk=id)
     return render(request, 'projetos-detail.html', {"projeto": projeto})
