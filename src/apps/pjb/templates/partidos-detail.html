@@ -6,6 +6,18 @@
       <div class="e-row e-expanded">
           <div class="section__info section__block e-columns small-12 large-3">
               <a href="{% url 'deputado-list'%}"><img class="section__logo" src="{% static 'img/Marca_Jovens_Deputados_COR.png' %}"></a>
+            <a class="section__link-bold" href="{% url 'comissao-list' %}">
+                <br/>
+                Saiba como estão formadas as comissões temáticas do PJB 2020
+            </a>
+            <a class="section__link-bold" href="{% url 'partidos-list' %}">
+                <br/>
+                Saiba quais são os Partidos do PJB 2020
+            </a>
+            <a class="section__link-bold" href="{% url 'mesa-diretora' %}">
+                <br/>
+                Conheça a Mesa Diretora do PJB 2020
+            </a>
           </div>
   
           <div class="section__block e-columns small-12 large-9">
@@ -14,24 +26,24 @@
                 <h1 class="section__title">{{partido.nome}}</h1>
                 <br>
                 {% if partido.lider %}
-                  <h5><b>Líder: </b><a class="white-link" href="{% url 'deputado-detail' id=partido.lider.id %}"> {{partido.lider.nome}}</a></h5>
+                  <h5><b>Líder: </b><a class="black-link" href="{% url 'deputado-detail' id=partido.lider.id %}"> {{partido.lider.nome}}({{partido.lider.uf}})</a></h5>
                 {% endif %}
                 {% if partido.primeiro_vice_lider %}
-                  <h5><b>Vice-líder: </b><a class="white-link" href="{% url 'deputado-detail' id=partido.primeiro_vice_lider.id %}"> {{partido.primeiro_vice_lider.nome}}</a></h5>
+                  <h5><b>Vice-líder: </b><a class="black-link" href="{% url 'deputado-detail' id=partido.primeiro_vice_lider.id %}"> {{partido.primeiro_vice_lider.nome}}({{partido.primeiro_vice_lider.uf}})</a></h5>
                 {% endif %}
                 {% if partido.segundo_vice_lider %}
-                  <h5><b>Vice-líder: </b><a class="white-link" href="{% url 'deputado-detail' id=partido.segundo_vice_lider.id %}"> {{partido.segundo_vice_lider.nome}}</a></h5>
+                  <h5><b>Vice-líder: </b><a class="black-link" href="{% url 'deputado-detail' id=partido.segundo_vice_lider.id %}"> {{partido.segundo_vice_lider.nome}}({{partido.segundo_vice_lider.uf}})</a></h5>
                 {% endif %}
                 {% if partido.terceiro_vice_lider %}
-                  <h5><b>Vice-líder: </b><a class="white-link" href="{% url 'deputado-detail' id=partido.terceiro_vice_lider.id %}"> {{partido.terceiro_vice_lider.nome}}</a></h5>
+                  <h5><b>Vice-líder: </b><a class="black-link" href="{% url 'deputado-detail' id=partido.terceiro_vice_lider.id %}"> {{partido.terceiro_vice_lider.nome}}({{partido.terceiro_vice_lider.uf}})</a></h5>
                 {% endif %}
                 {% if partido.quarto_vice_lider %}
-                  <h5><b>Vice-líder: </b><a class="white-link" href="{% url 'deputado-detail' id=partido.quarto_vice_lider.id %}"> {{partido.quarto_vice_lider.nome}}</a></h5>
+                  <h5><b>Vice-líder: </b><a class="black-link" href="{% url 'deputado-detail' id=partido.quarto_vice_lider.id %}"> {{partido.quarto_vice_lider.nome}}({{partido.quarto_vice_lider.uf}})</a></h5>
                 {% endif %}
                 <h3><b>Integrantes:</b></h3>
                 <div class="container container--card-list">
                     <ul class="card-list card-list--wrapped">
-                        {% for deputado in partido.integrantes.all %}
+                        {% for deputado in integrantes %}
                             {% include "deputados-card.html" %}
                         {% endfor %}
                     </ul>
