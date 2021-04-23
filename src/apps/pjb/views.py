@@ -132,4 +132,5 @@ def comissao_detail_view(request, id):
 
     return render(request, 'comissoes-detail.html',
                   {"comissao": comissao,
-                   "propostas": projetos})
+                   "propostas": projetos,
+                   "integrantes": integrantes})
