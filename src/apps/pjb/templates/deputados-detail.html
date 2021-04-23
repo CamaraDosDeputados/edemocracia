@@ -18,7 +18,7 @@
           <div class="section__block e-columns small-12 large-9">
               <div class="section__alternative-content">
   
-                <h1 class="section__title">Deputado(a) Jovem </br>{{deputado.nome}}</h1>
+                <h1 class="section__title">Deputado(a) Jovem </br>{{deputado.nome}}({{deputado.uf}})</h1>
                 <br>
                 {% if deputado.foto %}
                 <img class="pjb-card" src="{{deputado.foto.url}}"/>
@@ -31,16 +31,16 @@
                     <a href="{% url 'projeto-detail' id=projeto.id %}"><h5><b>Proposta Legislativa PJB: {{projeto.sigla_tipo}} {{projeto.numero}}/{{projeto.ano}}</b></h5></a>
                 {% endif %}
                 {% if partido %}
-                    <a href=""><h5><b>{{partido.atribuicao}}</b></h5></a>
+                    <a href="{% url 'partido-detail' id=partido.partido.id %}"><h5><b>{{partido.atribuicao}}</b></h5></a>
                 {% endif %}
+                {% for mesa in mesas %}
+                    <a href="{% url 'mesa-diretora' %}">
+                        <h5><b>{{mesa.atribuicao}}</b></h5>
+                    </a>
+                {% endfor %}
                 {% for comissao in comissoes %}
                     <a href="{% url 'comissao-detail' id=comissao.comissao.id %}">
                         <h5><b>{{comissao.atribuicao}}</b></h5>
-                    </a>
-                {% endfor %}
-                {% for mesa in mesas %}
-                    <a href="">
-                        <h5><b>{{mesa.atribuicao}}</b></h5>
                     </a>
                 {% endfor %}
                 

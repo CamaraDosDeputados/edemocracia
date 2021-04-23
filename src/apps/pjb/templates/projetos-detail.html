@@ -22,9 +22,9 @@
                   <h5><a class="white-link" href="{{projeto.texto_original.url}}">Texto Original</a></h5>
                 {% endif %}
                 <h5><b>Entenda a proposta:</b> {{projeto.entenda_a_proposta}}</h5>
-                <h5><b>Autor(a): </b><a class="white-link" href="{% url 'deputado-detail' id=projeto.autor.id %}">{{projeto.autor.nome}}</a></h5>
+                <h5><b>Autor(a): </b><a class="white-link" href="{% url 'deputado-detail' id=projeto.autor.id %}">{{projeto.autor.nome}}({{projeto.autor.uf}})</a></h5>
                 {% if projeto.relator %}
-                <h5><b>Relator(a): </b><a class="white-link" href="{% url 'deputado-detail' id=projeto.relator.id %}"> {{projeto.relator.nome}}</a></h5>
+                <h5><b>Relator(a): </b><a class="white-link" href="{% url 'deputado-detail' id=projeto.relator.id %}"> {{projeto.relator.nome}}({{projeto.relator.uf}})</a></h5>
                 {% endif %}
                 {% if projeto.comissoes %}
                   {% for comissao in projeto.comissoes.all %}

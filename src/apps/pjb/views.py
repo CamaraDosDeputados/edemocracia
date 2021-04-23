@@ -19,15 +19,15 @@ def deputado_detail_view(request, id):
 
     def get_partido_obj(deputado):
         obj = None
-        partidos = PartidoPjb.objects.filter(integrantes__id__in=[deputado.id])
+        partidos = PartidoPjb.objects.filter(integrantes__id__in=[deputado.id]).order_by('nome')
         partido = partidos[0] if len(partidos) > 0 else None
         atribuicao = "Integrante" if partido else None
         if atribuicao:
             atribuicao = "Líder" if partido.lider == deputado else atribuicao
-            atribuicao = "Primeiro Vice-líder" if partido.primeiro_vice_lider == deputado else atribuicao
-            atribuicao = "Segundo Vice-líder" if partido.segundo_vice_lider == deputado else atribuicao
-            atribuicao = "Terceiro Vice-líder" if partido.terceiro_vice_lider == deputado else atribuicao
-            atribuicao = "Quarto Vice-líder" if partido.quarto_vice_lider == deputado else atribuicao
+            atribuicao = "Primeiro(a) Vice-líder" if partido.primeiro_vice_lider == deputado else atribuicao
+            atribuicao = "Segundo(a) Vice-líder" if partido.segundo_vice_lider == deputado else atribuicao
+            atribuicao = "Terceiro(a) Vice-líder" if partido.terceiro_vice_lider == deputado else atribuicao
+            atribuicao = "Quarto(a) Vice-líder" if partido.quarto_vice_lider == deputado else atribuicao
             atribuicao = f"{atribuicao} do {partido.nome}"
             obj = {"partido": partido, "atribuicao": atribuicao}
         return obj
@@ -53,9 +53,9 @@ def deputado_detail_view(request, id):
             if mesa.vice_presidente == deputado:
                 atribuicao = "Vice presidente"
             if mesa.primeiro_secretario == deputado:
-                atribuicao = "Primeiro secretário(a)"
+                atribuicao = "Primeiro(a) secretário(a)"
             if mesa.segundo_secretario == deputado:
-                atribuicao = "Segundo secretário(a)"
+                atribuicao = "Segundo(a) secretário(a)"
             if atribuicao:
                 atribuicao = f"{atribuicao} da Mesa Diretora"
                 obj.append({"mesa": mesa, "atribuicao": atribuicao})
@@ -82,12 +82,15 @@ def projeto_list_view(request):
 
 def partido_detail_view(request, id):
     partido = get_object_or_404(PartidoPjb, pk=id)
-    return render(request, 'partidos-detail.html', {"partido": partido})
+    integrantes = partido.integrantes.all().order_by('nome')
+    return render(request, 'partidos-detail.html', {
+        "partido": partido,
+        "integrantes": integrantes
+    })
 
 
 def partido_list_view(request):
     partidos = PartidoPjb.objects.all().order_by('nome')
-
     return render(request, 'partidos-list.html', {"partidos": partidos})
 
 
