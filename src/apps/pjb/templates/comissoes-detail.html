@@ -29,15 +29,15 @@
                 <h1 class="section__title">{{comissao.nome}}</h1>
                 <br>
                 {% if comissao.presidente %}
-                  <h5><b>Presidente: </b><a class="black-link" href="{% url 'deputado-detail' id=comissao.presidente.id %}"> {{comissao.presidente.nome}}</a></h5>
+                  <h5><b>Presidente: </b><a class="black-link" href="{% url 'deputado-detail' id=comissao.presidente.id %}"> {{comissao.presidente.nome}}({{comissao.presidente.uf}})</a></h5>
                 {% endif %}
                 {% if comissao.vice_presidente %}
-                  <h5><b>Vice-presidente: </b><a class="black-link" href="{% url 'deputado-detail' id=comissao.vice_presidente.id %}"> {{comissao.vice_presidente.nome}}</a></h5>
+                  <h5><b>Vice-presidente: </b><a class="black-link" href="{% url 'deputado-detail' id=comissao.vice_presidente.id %}"> {{comissao.vice_presidente.nome}}({{comissao.vice_presidente.uf}})</a></h5>
                 {% endif %}
                 <h3><b>Integrantes:</b></h3>
                 <div class="container container--card-list">
                     <ul class="card-list card-list--wrapped">
-                        {% for deputado in comissao.integrantes.all %}
+                        {% for deputado in integrantes %}
                             {% include "deputados-card.html" %}
                         {% empty %}
                         <li>
